@@ -1,12 +1,13 @@
 <script>
+	import logo from '$lib/assets/logo.png';
+
 	let isMenuOpen = false;
 
 	const navigation = [
-		{ name: 'Home', href: '/' },
-		{ name: 'Features', href: '#features' },
-		{ name: 'Pricing', href: '#pricing' },
-		{ name: 'Blog', href: '/blog' },
-		{ name: 'Contact', href: '#contact' }
+		{ name: 'Pricing', href: '/pricing' },
+		{ name: 'Features', href: '/features' },
+		{ name: 'Affiliate', href: '/affiliate' },
+		{ name: 'Blog', href: '/blog' }
 	];
 
 	function toggleMenu() {
@@ -18,12 +19,15 @@
 	}
 </script>
 
-<header class="bg-white shadow-sm sticky top-0 z-50">
+<header class="bg-white py-6">
 	<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo -->
-			<div class="shrink-0">
-				<a href="/" class="text-2xl font-bold text-blue-600"> Brand </a>
+			<div class="flex items-center">
+				<a href="/" class="flex items-center">
+					<img src={logo} alt="logo" class="w-[100px]" />
+				</a>
+				<!-- <span class="ml-2 text-xs bg-gray-900 text-white px-2 py-1 rounded"> v2.0 released </span> -->
 			</div>
 
 			<!-- Desktop Navigation -->
@@ -31,15 +35,15 @@
 				{#each navigation as item}
 					<a
 						href={item.href}
-						class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+						class="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors"
 					>
 						{item.name}
 					</a>
 				{/each}
 				<button
-					class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+					class="font-plus-jakarta-sans cursor-pointer text-[12px] font-semibold leading-[1.33px] text-left text-[#fff] h-8 flex flex-row justify-center items-center gap-1 p-2 shadow-[0 0.5px 0.8px 0 rgba(10, 19, 53, 0.08), 0 0 0.5px 0 rgba(0, 0, 0, 0.4), 0 0 0.5px 0 rgba(0, 0, 0, 0.64)] bg-[#02a758]"
 				>
-					Get Started
+					Join AfterLib
 				</button>
 			</div>
 
@@ -47,7 +51,7 @@
 			<div class="md:hidden">
 				<button
 					on:click={toggleMenu}
-					class="text-gray-700 hover:text-blue-600 p-2"
+					class="text-gray-700 hover:text-gray-900 p-2"
 					aria-label="Toggle menu"
 				>
 					{#if isMenuOpen}
@@ -80,16 +84,16 @@
 					{#each navigation as item}
 						<a
 							href={item.href}
-							class="text-gray-700 hover:text-blue-600 px-3 py-2 text-base font-medium"
+							class="text-gray-700 hover:text-gray-900 px-3 py-2 text-base font-medium"
 							on:click={closeMenu}
 						>
 							{item.name}
 						</a>
 					{/each}
 					<button
-						class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-left"
+						class=" w-22 h-8 flex flex-row justify-center items-center gap-1 p-2 shadow-[0 0.5px 0.8px 0 rgba(10, 19, 53, 0.08), 0 0 0.5px 0 rgba(0, 0, 0, 0.4), 0 0 0.5px 0 rgba(0, 0, 0, 0.64)] bg-[#02a758]"
 					>
-						Get Started
+						Join AfterLib
 					</button>
 				</div>
 			</div>
