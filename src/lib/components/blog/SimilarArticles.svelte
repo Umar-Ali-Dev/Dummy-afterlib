@@ -1,41 +1,32 @@
 <script lang="ts">
 	import BlogCard from '$lib/components/blog/BlogCard.svelte';
+	import { urlFor } from '$lib/sanity';
 
-	interface BlogPost {
-		id: number;
-		title: string;
-		date: string;
-		readTime: string;
-		image: string;
-		slug: string;
+	// Accept related posts as prop from parent
+	export let relatedPosts: any[] = [];
+
+	// Format date function
+	function formatDate(dateString: string): string {
+		return new Date(dateString).toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric'
+		});
 	}
 
-	const blogPosts: BlogPost[] = [
-		{
-			id: 1,
-			title: 'Blog post headline for article that will be this long to be optimized for SEO',
-			date: 'Jan 24, 2025',
-			readTime: 'Five from AfterLib',
-			image: '/images/blog/post-1.jpg',
-			slug: 'blog-post-headline-seo'
-		},
-		{
-			id: 2,
-			title: 'Blog post headline for article that will be this long to be optimized for SEO',
-			date: 'Jan 24, 2025',
-			readTime: 'Five from AfterLib',
-			image: '/images/blog/post-2.jpg',
-			slug: 'blog-post-headline-seo-2'
-		},
-		{
-			id: 3,
-			title: 'Blog post headline for article that will be this long to be optimized for SEO',
-			date: 'Jan 24, 2025',
-			readTime: 'Five from AfterLib',
-			image: '/images/blog/post-3.jpg',
-			slug: 'blog-post-headline-seo-3'
+	// Calculate read time or return author name
+	function getReadTime(post: any): string {
+		return post.author?.name || 'AfterLib Team';
+	}
+
+	// Get image URL with fallback
+	function getImageUrl(post: any): string {
+		if (post.mainImage?.asset?.url) {
+			return urlFor(post.mainImage).width(600).height(400).url();
 		}
-	];
+		// Fallback to placeholder
+		return '/images/blog/post-1.jpg';
+	}
 </script>
 
 <section class="bg-[#fafaf5]">
@@ -48,16 +39,15 @@
 				Similar articles
 			</h1>
 		</div>
-
 		<!-- Blog Grid -->
 		<div class="flex flex-wrap gap-6 mb-14">
-			{#each blogPosts as post}
+			{#each relatedPosts as post}
 				<BlogCard
 					title={post.title}
-					date={post.date}
-					readTime={post.readTime}
-					image={post.image}
-					slug={post.slug}
+					date={formatDate(post.publishedAt)}
+					readTime={getReadTime(post)}
+					image={getImageUrl(post)}
+					slug={post.slug.current}
 				/>
 			{/each}
 		</div>
