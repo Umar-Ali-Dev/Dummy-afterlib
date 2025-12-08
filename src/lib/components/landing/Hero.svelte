@@ -1,17 +1,21 @@
 <script>
 </script>
 
-<section class="bg-white py-16 md:py-24">
+<section class="bg-[#fafaf5] py-8 md:py-10">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<!-- Trust Badge -->
-		<div class="text-center mb-8">
-			<p class="text-sm text-gray-600 font-medium">The trusted standard since 2022</p>
+		<div class="text-center mb-12">
+			<p class="flex justify-center font-plus-jakarta-sans text-lg text-center text-[#1e1e1e]">
+				The trusted standard since 2022
+			</p>
 		</div>
 
 		<!-- Main Heading -->
 		<div class="text-center mb-6">
-			<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
-				See what's scaling<br />
+			<h1
+				class=" flex justify-center font-plus-jakarta-sans text-[40px] font-bold text-center text-[#1e1e1e] mb-4"
+			>
+				See what's scaling<br class="hidden md:block" />
 				and what's about to take off
 			</h1>
 		</div>
@@ -25,9 +29,9 @@
 		</div>
 
 		<!-- CTA Button -->
-		<div class="text-center mb-12">
+		<div class="flex justify-center text-center mb-12">
 			<button
-				class="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+				class="font-plus-jakarta-sans cursor-pointer text-lg font-semibold text-left text-white p-2 flex justify-center items-center gap-1 shadow-[0 0.5px 0.8px 0 rgba(10, 19, 53, 0.08), 0 0 0.5px 0 rgba(0, 0, 0, 0.4), 0 0 0.5px 0 rgba(0, 0, 0, 0.64)] bg-[#02a758]"
 			>
 				Join AfterLib
 			</button>
@@ -79,22 +83,6 @@
 						class="w-full rounded-lg border border-gray-200"
 					/>
 				</div>
-			</div>
-		</div>
-
-		<!-- Stats or Additional Info (Optional) -->
-		<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
-			<div>
-				<div class="text-3xl font-bold text-gray-900 mb-2">500K+</div>
-				<div class="text-sm text-gray-600">New ads daily</div>
-			</div>
-			<div>
-				<div class="text-3xl font-bold text-gray-900 mb-2">10M+</div>
-				<div class="text-sm text-gray-600">Ads in database</div>
-			</div>
-			<div>
-				<div class="text-3xl font-bold text-gray-900 mb-2">50K+</div>
-				<div class="text-sm text-gray-600">Active users</div>
 			</div>
 		</div>
 	</div>
