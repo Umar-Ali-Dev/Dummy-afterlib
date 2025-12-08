@@ -92,7 +92,7 @@
 				<!-- Resources Column -->
 				<div>
 					<h4
-						class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm leading-[1.43px] text-left text-[#3d3d3d] mb-6"
+						class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm text-left text-[#3d3d3d] mb-6"
 					>
 						Resources
 					</h4>
@@ -101,7 +101,7 @@
 							<li>
 								<a
 									href={link.href}
-									class="flex items-center gap-2 self-stretch font-plus-jakarta-sans text-[14px] font-bold leading-[1.43px] text-left text-[#1e1e1e]"
+									class="flex items-center gap-2 self-stretch font-plus-jakarta-sans text-[14px] font-bold text-left text-[#1e1e1e]"
 								>
 									<img src={link.icon} alt={link.name} class="w-6 h-6" />
 									{link.name}
@@ -114,7 +114,7 @@
 				<!-- Legal Column -->
 				<div>
 					<h4
-						class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm leading-[1.43px] text-left text-[#3d3d3d] mb-6"
+						class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm text-left text-[#3d3d3d] mb-6"
 					>
 						Legal
 					</h4>
@@ -123,7 +123,7 @@
 							<li>
 								<a
 									href={link.href}
-									class="self-stretch font-plus-jakarta-sans text-[14px] font-bold leading-[1.43px] text-left text-[#1e1e1e]"
+									class="self-stretch font-plus-jakarta-sans text-[14px] font-bold text-left text-[#1e1e1e]"
 								>
 									{link.name}
 								</a>
@@ -137,7 +137,7 @@
 		<!-- Bottom Bar -->
 		<div class="border-t border-[#e0e0e0] mt-12 pt-8 flex justify-between items-center">
 			<!-- Copyright -->
-			<p class="flex font-plus-jakarta-sans text-sm leading-[1.43px] text-left text-[#1e1e1e]">
+			<p class="flex font-plus-jakarta-sans text-sm text-left text-[#1e1e1e]">
 				Copyright @ {currentYear}
 			</p>
 

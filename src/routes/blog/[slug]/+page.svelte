@@ -71,7 +71,7 @@
 
 				<!-- Title -->
 				<h1
-					class="self-stretch flex font-plus-jakarta-sans text-[40px] font-bold text-left text-[#1e1e1e] mb-4 leading-tight"
+					class="self-stretch flex font-plus-jakarta-sans text-[32px] sm:text-[40px] font-bold text-left text-[#1e1e1e] mb-4 leading-tight"
 				>
 					{data?.post?.title ?? ''}
 				</h1>

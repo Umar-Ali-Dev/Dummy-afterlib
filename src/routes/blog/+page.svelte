@@ -64,11 +64,13 @@
 <section class="bg-[#fafaf5] py-16 md:py-24">
 	<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<!-- Header -->
-		<div class="mb-12">
-			<h1 class=" font-plus-jakarta-sans text-[40px] font-bold text-left text-[#1e1e1e] mb-4">
+		<div class="mb-12 bg-white md:bg-transparent">
+			<h1
+				class=" font-plus-jakarta-sans text-[30px] sm:text-[40px] font-bold text-left text-[#1e1e1e] mb-4"
+			>
 				News, insights, and more
 			</h1>
-			<p class="text-2xl text-left text-[#1e1e1e] max-w-3xl">
+			<p class="text-lg sm:text-2xl text-left text-[#1e1e1e] max-w-3xl">
 				Learn how AfterLib approaches ad intelligence – helping marketers find top
 				performing/highest-profit ads and high-performing campaigns.
 			</p>
@@ -82,7 +84,7 @@
 			<!-- No Posts State -->
 		{:else if data.posts.length === 0}
 			<div class="text-center py-20">
-				<p class="text-xl text-gray-600 mb-4">No blog posts available yet.</p>
+				<p class="text-lg sm:text-xl text-gray-600 mb-4">No blog posts available yet.</p>
 				<p class="text-gray-500">Check back soon for updates!</p>
 			</div>
 		{:else}
@@ -106,7 +108,7 @@
 					<button
 						on:click={() => goToPage(currentPage - 1)}
 						disabled={currentPage === 1}
-						class="px-6 flex justify-center cursor-pointer items-center py-2 font-plus-jakarta-sans text-xs font-semibold text-left text-[#1e1e1e] bg-white border border-[#e0e0e0] hover:bg-gray-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+						class="px-4 sm:px-6 flex justify-center cursor-pointer items-center py-2 font-plus-jakarta-sans text-xs font-semibold text-left text-[#1e1e1e] bg-white border border-[#e0e0e0] hover:bg-gray-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
 					>
 						<svg
 							class="w-4 h-4 text-[#1e1e1e]"
@@ -126,7 +128,7 @@
 					<!-- Show More Button -->
 					<button
 						on:click={showMore}
-						class=" px-30 py-2 cursor-pointer font-plus-jakarta-sans text-xs font-semibold text-left text-[#1e1e1e] bg-white border border-[#e0e0e0] hover:bg-gray-50 transition-colors"
+						class=" px-3 sm:px-30 py-2 cursor-pointer font-plus-jakarta-sans text-xs font-semibold text-left text-[#1e1e1e] bg-white border border-[#e0e0e0] hover:bg-gray-50 transition-colors"
 					>
 						Show more
 					</button>
@@ -135,7 +137,7 @@
 					<button
 						on:click={() => goToPage(currentPage + 1)}
 						disabled={currentPage === totalPages}
-						class="px-6 py-2 flex justify-center items-center cursor-pointer font-plus-jakarta-sans text-xs font-semibold text-left text-[#1e1e1e] bg-white border border-[#e0e0e0] hover:bg-gray-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+						class="px-4 sm:px-6 py-2 flex justify-center items-center cursor-pointer font-plus-jakarta-sans text-xs font-semibold text-left text-[#1e1e1e] bg-white border border-[#e0e0e0] hover:bg-gray-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
 					>
 						Next <svg
 							class="w-4 h-4 text-[#1e1e1e]"

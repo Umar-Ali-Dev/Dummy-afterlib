@@ -34,22 +34,30 @@
 		class="w-full max-w-7xl border-t border-[#e0e0e0] border-solid mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pb-8"
 	>
 		<!-- Header -->
-		<div class="mb-16">
-			<h1 class=" font-plus-jakarta-sans text-[40px] font-bold text-left text-[#1e1e1e] mb-4">
+		<div class="mb-4 sm:mb-16">
+			<h1
+				class=" font-plus-jakarta-sans text-[32px] sm:text-[40px] font-bold text-left text-[#1e1e1e] mb-2 sm:mb-4"
+			>
 				Similar articles
 			</h1>
 		</div>
-		<!-- Blog Grid -->
-		<div class="flex flex-wrap gap-6 mb-14">
-			{#each relatedPosts as post}
-				<BlogCard
-					title={post.title}
-					date={formatDate(post.publishedAt)}
-					readTime={getReadTime(post)}
-					image={getImageUrl(post)}
-					slug={post.slug.current}
-				/>
-			{/each}
-		</div>
+
+		<!-- If NO related posts -->
+		{#if relatedPosts.length === 0}
+			<p class="text-[#555] text-lg font-plus-jakarta-sans pb-8">No similar articles found.</p>
+		{:else}
+			<!-- Blog Grid -->
+			<div class="flex flex-wrap gap-6 mb-14">
+				{#each relatedPosts as post}
+					<BlogCard
+						title={post.title}
+						date={formatDate(post.publishedAt)}
+						readTime={getReadTime(post)}
+						image={getImageUrl(post)}
+						slug={post.slug.current}
+					/>
+				{/each}
+			</div>
+		{/if}
 	</div>
 </section>
