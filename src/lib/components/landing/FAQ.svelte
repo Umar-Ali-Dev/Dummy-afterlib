@@ -84,12 +84,12 @@
 		<!-- Header -->
 		<div class="text-center mb-14">
 			<h2
-				class="self-stretch flex justify-center font-plus-jakarta-sans text-[40px] font-bold text-center text-[#1e1e1e] mb-4"
+				class="self-stretch flex justify-center font-plus-jakarta-sans text-[24px] sm:text-[40px] font-bold text-center text-[#1e1e1e] mb-4"
 			>
 				Frequently Asked Questions
 			</h2>
 			<p
-				class="self-stretch flex justify-center font-plus-jakarta-sans text-2xl leading-[1.33px] text-center text-[#1e1e1e]"
+				class="self-stretch flex justify-start sm:justify-center font-plus-jakarta-sans text-[18px] sm:text-2xl text-left sm:text-center text-[#1e1e1e]"
 			>
 				Everything you need to know about AfterLib and ad intelligence.
 			</p>
@@ -99,14 +99,14 @@
 		<div class="space-y-3">
 			{#each faqs as faq, index}
 				<div
-					class={`bg-white overflow-hidden mb-0 border-l border-r border-[#e0e0e0] ${index === 0 ? 'border-t' : ''} ${index - 1 ? 'border-b   ' : ''} `}
+					class={`bg-white overflow-hidden mb-0 border-l border-r border-[#e0e0e0] ${index === 0 ? 'border-t' : ''} ${index - 1 ? 'border-b   ' : 'border-b'} `}
 				>
 					<button
 						on:click={() => toggle(index)}
 						class="w-full flex justify-between items-center px-5 py-8 text-left transition-colors"
 					>
 						<span
-							class="font-plus-jakarta-sans text-2xl font-semibold leading-[1.33px] text-left text-[#1e1e1e] pr-4"
+							class="font-plus-jakarta-sans text-[18px] sm:text-2xl font-semibold text-left text-[#1e1e1e] pr-4"
 						>
 							{faq.question}
 						</span>
@@ -140,11 +140,12 @@
 		</div>
 
 		<!-- Contact Support CTA -->
-		<div class="mt-12 text-center">
-			<p class="text-2xl text-center text-[#1e1e1e] mb-6">
-				Have a question? We're here for you!<br /> Our support team is ready to assist you
+		<div class="mt-12 text-left sm:text-center">
+			<p class="text-2xl text-left sm:text-center text-[#1e1e1e] mb-6">
+				Have a question? We're here for you!<br class="hidden sm:block" /> Our support team is ready to
+				assist you
 			</p>
-			<div class="flex items-center justify-center">
+			<div class="flex items-center justify-start sm:justify-center">
 				<button
 					class=" flex gap-2 cursor-pointer items-center h-12 flex-row justify-center p-4 border border-[#c2c2c2] border-solid bg-white plus-jakarta-sans text-sm font-bold leading-[1.14px] text-left text-[#1e1e1e]"
 				>
