@@ -98,7 +98,7 @@
 					{/if}
 
 					<!-- Header -->
-					<div class="mb-6 pt-6 px-6">
+					<div class="pb-3 pt-6 px-6 border-b border-b-[#e0e0e0]">
 						<h3 class="font-plus-jakarta-sans text-2xl font-bold text-left text-[#1e1e1e] pb-2">
 							{plan.name}
 						</h3>
@@ -107,16 +107,24 @@
 						>
 							{plan.price}
 						</div>
-						<p class="font-plus-jakarta-sans text-sm text-left text-[#3d3d3d] mb-2">
+						<p class="font-plus-jakarta-sans text-sm text-left text-[#3d3d3d] mb-3">
 							{plan.description}
 						</p>
-						<p class="text-xs text-gray-500">
-							Yearly billing <span class="text-green-600">{plan.yearlyBilling}</span>
-						</p>
+						<div class="items-center">
+							<label class="inline-flex items-center cursor-pointer">
+								<input type="checkbox" value="" class="sr-only peer" />
+								<div
+									class="relative w-9 h-5 bg-[#e0e0e0] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand"
+								></div>
+								<p class="text-[14px] font-semibold text-[#1e1e1e] ml-2">
+									Yearly billing <span>{plan.yearlyBilling}</span>
+								</p>
+							</label>
+						</div>
 					</div>
 
 					<!-- Features -->
-					<div class="grow mb-6 px-6">
+					<div class="grow mb-6 px-6 mt-3">
 						<ul class="space-y-3">
 							{#each plan.features as feature}
 								<li
@@ -126,15 +134,23 @@
 								>
 									<span class="mr-2 mt-0.5">
 										{#if feature.icon}
-											<svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+											<svg
+												class="w-5! h-5! bg-[#02a758] rounded-2xl text-white"
+												fill="currentColor"
+												viewBox="0 0 20 20"
+											>
 												<path
 													fill-rule="evenodd"
-													d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+													d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
 													clip-rule="evenodd"
 												/>
 											</svg>
 										{:else}
-											<svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+											<svg
+												class="w-5 h-5 flex rounded-2xl bg-[#f2f2f2]"
+												fill="currentColor"
+												viewBox="0 0 20 20"
+											>
 												<path
 													fill-rule="evenodd"
 													d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -143,7 +159,40 @@
 											</svg>
 										{/if}
 									</span>
-									{feature.text}
+									<span
+										class="flex items-center gap-[5px] font-plus-jakarta-sans text-sm font-semibold text-left text-[#1e1e1e]"
+									>
+										{feature.text}
+										<!-- svg  -->
+										<svg
+											width="16"
+											height="16"
+											viewBox="0 0 16 16"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<g clip-path="url(#150kde1ova)" fill="#1E1E1E">
+												<path
+													fill-rule="evenodd"
+													clip-rule="evenodd"
+													d="M8.172 5.35a1.333 1.333 0 0 0-1.483.872.667.667 0 0 1-1.258-.443 2.667 2.667 0 0 1 5.183.889c0 1.02-.757 1.694-1.297 2.054-.29.193-.576.336-.787.43a9.905 9.905 0 0 1-.36.147c-.033.013.019-.006 0 0a.68.68 0 0 1-.855-.421.666.666 0 0 1 .42-.843c-.022.008.01-.004 0 0a4.032 4.032 0 0 0 .842-.423c.46-.306.703-.632.703-.945v-.001A1.333 1.333 0 0 0 8.172 5.35z"
+												/>
+												<path
+													d="M7.334 11.334c0-.368.298-.667.666-.667h.007a.667.667 0 0 1 0 1.333H8a.667.667 0 0 1-.666-.666z"
+												/>
+												<path
+													fill-rule="evenodd"
+													clip-rule="evenodd"
+													d="M.667 8a7.333 7.333 0 1 1 14.667 0A7.333 7.333 0 0 1 .667 8zM8 2a6 6 0 1 0 0 12A6 6 0 0 0 8 2z"
+												/>
+											</g>
+											<defs>
+												<clipPath id="150kde1ova">
+													<path fill="#fff" d="M0 0h16v16H0z" />
+												</clipPath>
+											</defs>
+										</svg>
+									</span>
 								</li>
 							{/each}
 						</ul>

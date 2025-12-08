@@ -2,7 +2,11 @@
 	// import Hero from '$lib/components/landing/Hero.svelte';
 	import FAQ from '$lib/components/landing/FAQ.svelte';
 	import PricingPlans from '$lib/components/landing/PricingPlans.svelte';
+	import FullStory from '$lib/components/landing/FullStory.svelte';
+	import Card from '$lib/components/landing/Card.svelte';
 </script>
 
+<!-- <Card /> -->
+<!-- <FullStory /> -->
 <PricingPlans />
 <FAQ />
