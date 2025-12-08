@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+	// Assets
 	import logo from '$lib/assets/logo.png';
 	import iconChatEmpty from '$lib/assets/footer/icon-chat-empty.svg';
 	import iconHelp from '$lib/assets/footer/icon-help.svg';
@@ -36,7 +37,7 @@
 	>
 		<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
 			<!-- Brand Section (Left) -->
-			<div class="md:col-span-5">
+			<div class="md:col-span-12">
 				<!-- Logo -->
 				<div class="flex items-center mb-8">
 					<a href="/" class="flex items-center">
@@ -46,27 +47,27 @@
 
 				<!-- Tagline -->
 				<h3 class=" font-plus-jakarta-sans text-2xl font-bold text-left text-[#1e1e1e] mb-3">
-					Ready to find winning ads<br />
+					Ready to find winning ads<br class="hidden sm:block" />
 					and outscale your competitors?
 				</h3>
 
 				<!-- Description -->
 				<p class="font-plus-jakarta-sans text-lg text-left text-[#1e1e1e] mb-6">
-					Join thousands of marketers who trust<br />
-					AfterLib for real ad intelligence.<br />
+					Join thousands of marketers who trust<br class="hidden sm:block" />
+					AfterLib for real ad intelligence.<br class="hidden sm:block" />
 					No fake data. No hype. Just facts.
 				</p>
 
 				<!-- CTA Button -->
 				<button
-					class=" cursor-pointer h-14 flex font-bold text-white flex-row justify-center items-center gap-2 p-4 bg-[#02a758]"
+					class="w-full sm:w-auto cursor-pointer h-14 flex font-plus-jakarta-sans text-md font-bold text-white flex-row justify-center items-center gap-2 p-4 md:px-8 bg-[#02a758]"
 				>
 					Start winning
 				</button>
 			</div>
 
 			<!-- Links Sections (Right) -->
-			<div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
+			<div class="md:col-span-12 grid grid-cols-2 lg:grid-cols-3 gap-8">
 				<!-- Main Column -->
 				<div>
 					<h4
@@ -134,9 +135,7 @@
 		</div>
 
 		<!-- Bottom Bar -->
-		<div
-			class="border-t border-[#e0e0e0] mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center"
-		>
+		<div class="border-t border-[#e0e0e0] mt-12 pt-8 flex justify-between items-center">
 			<!-- Copyright -->
 			<p class="flex font-plus-jakarta-sans text-sm leading-[1.43px] text-left text-[#1e1e1e]">
 				Copyright @ {currentYear}
