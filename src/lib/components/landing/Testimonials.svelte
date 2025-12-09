@@ -72,7 +72,7 @@
                </div>
             </div>
 
-            <div class="text-lg md:text-xl font-medium leading-8 text-gray-900 ml-px">
+            <div class="text-lg md:text-xl font-medium leading-8 text-gray-900 ml-px mb-px">
                <span class="bg-white px-2 py-1 merged-outline">
                  {review.text}
                </span>
@@ -121,9 +121,9 @@
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     filter: 
-      drop-shadow(0 1px 0 #1e1e1e) 
-      drop-shadow(0 -1px 0 #1e1e1e) 
-      drop-shadow(1px 0 0 #1e1e1e) 
-      drop-shadow(-1px 0 0 #1e1e1e);
+drop-shadow(0 1px 0.3px #e3e3e3)
+drop-shadow(0 -1px 0.3px #e3e3e3)
+drop-shadow(1px 0 0.3px #e3e3e3)
+drop-shadow(-1px 0 0.3px #e3e3e3);
   }
 </style>
