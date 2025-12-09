@@ -40,7 +40,7 @@
   ];
 </script>
 
-<section class="w-full bg-[#FAFAF9] py-16 px-4 md:px-8">
+<section class="w-full bg-[#FAFAF9] py-16 px-4 md:px-8 ">
   <div class="max-w-7xl mx-auto">
     
     <div class="text-center mb-12 space-y-4">
@@ -48,7 +48,7 @@
         Trusted by professional <br />
         marketers worldwide
       </h2>
-      <div class="inline-block bg-[#00C060] text-white font-bold px-4 py-2 text-xl">
+      <div class="inline-block bg-[#00C060] text-white font-bold px-4 py-2 text-xl ">
         Review score 4.9
       </div>
     </div>
@@ -72,17 +72,13 @@
                </div>
             </div>
 
-            <div class="text-lg md:text-xl font-medium leading-10 text-gray-900 mb-1">
-               <span class="bg-white px-2 py-1 box-decoration-clone border border-gray-900">
+            <div class="text-lg md:text-xl font-medium leading-8 text-gray-900 mb-1">
+               <span class="bg-white px-2 py-1 merged-outline">
                  {review.text}
                </span>
             </div>
              
-             <div class="text-lg font-medium leading-10 mb-3">
-                <span class="bg-white px-2 py-1 box-decoration-clone border border-gray-900">
-                    {review.subText}
-                </span>
-            </div>
+           
 
             <div class="flex items-start">
               <div class="h-7 bg-[#00C060] text-white px-3 flex items-center gap-2 text-xs font-bold shrink-0">
@@ -123,8 +119,13 @@
 </section>
 
 <style>
-  .box-decoration-clone {
+  .merged-outline {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
+    filter: 
+      drop-shadow(0 1px 0 #1e1e1e) 
+      drop-shadow(0 -1px 0 #1e1e1e) 
+      drop-shadow(1px 0 0 #1e1e1e) 
+      drop-shadow(-1px 0 0 #1e1e1e);
   }
 </style>
