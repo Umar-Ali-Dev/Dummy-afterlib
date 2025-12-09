@@ -32,14 +32,14 @@
 		<!-- CTA Button -->
 		<div class="flex justify-center text-center mb-12">
 			<button
-				class="font-plus-jakarta-sans cursor-pointer text-lg font-semibold text-left text-white p-2 flex justify-center items-center gap-1 shadow-[0 0.5px 0.8px 0 rgba(10, 19, 53, 0.08), 0 0 0.5px 0 rgba(0, 0, 0, 0.4), 0 0 0.5px 0 rgba(0, 0, 0, 0.64)] bg-[#02a758]"
+				class="font-plus-jakarta-sans cursor-pointer text-[18px] font-semibold text-left text-white h-14 px-6 flex justify-center items-center gap-1 bg-[#02a758]"
 			>
 				Join AfterLib
 			</button>
 		</div>
 
 		<!-- Video/Demo Section -->
-		<div class="max-w-5xl mx-auto">
+		<div class=" mx-auto">
 			<div
 				class="relative bg-gray-100 rounded-xl  shadow-2xl border border-gray-200"
 			>
