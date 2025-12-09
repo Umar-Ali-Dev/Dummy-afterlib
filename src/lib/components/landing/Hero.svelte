@@ -1,4 +1,5 @@
 <script>
+	import adsLibrary from "$lib/assets/images/AdsLibrary.png"
 </script>
 
 <section class="bg-[#fafaf5] py-8 md:py-10">
@@ -40,50 +41,39 @@
 		<!-- Video/Demo Section -->
 		<div class="max-w-5xl mx-auto">
 			<div
-				class="relative bg-gray-100 rounded-xl overflow-hidden shadow-2xl border border-gray-200"
+				class="relative bg-gray-100 rounded-xl  shadow-2xl border border-gray-200"
 			>
 				<!-- Video Thumbnail/Preview -->
-				<div class="relative aspect-video bg-gradient-to-br from-gray-50 to-gray-100">
-					<!-- Demo Screenshot Placeholder -->
-					<div class="absolute inset-0 flex items-center justify-center">
-						<img
-							src="/images/hero/dashboard-preview.png"
+				<div class="relative  bg-linear-to-br from-gray-50 to-gray-100">
+				
+
+					 <div class="relative">
+							<img
+							src={adsLibrary}
 							alt="AfterLib Dashboard Preview"
 							class="w-full h-full object-cover"
 						/>
-					</div>
+						<div class="flex items-center left-0 right-0 absolute top-0 h-12 m-auto -mt-4 max-w-fit gap-1">
 
-					<!-- Play Button Overlay -->
-					<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-						<button
-							class="bg-black bg-opacity-90 hover:bg-opacity-100 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition-all"
+						<div
+							class="bg-black text-white px-3 flex items-center max-w-fit h-12 m-auto  "
 						>
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+							<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
 								<path d="M8 5v14l11-7z" />
 							</svg>
 							<span class="font-semibold">Watch AfterLib demo</span>
-							<span class="text-sm opacity-80">01:25</span>
-						</button>
+						</div>
+						<div
+							class="bg-black text-white px-3 flex items-center max-w-fit h-12 m-auto  "
+						>
+							01:25
+						</div>
+						</div>
+
 					</div>
 
-					<!-- AfterLib Watermark -->
-					<div
-						class="absolute top-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded flex items-center"
-					>
-						<div class="w-4 h-4 bg-black rounded mr-1.5"></div>
-						<span class="text-xs font-semibold text-gray-900">AfterLib</span>
-					</div>
-				</div>
-
-				<!-- Dashboard Preview Image (Below Video) -->
-				<div class="p-4 bg-white">
-					<img
-						src="/images/hero/ads-library-preview.png"
-						alt="Ads Library Interface"
-						class="w-full rounded-lg border border-gray-200"
-					/>
-				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </section>
