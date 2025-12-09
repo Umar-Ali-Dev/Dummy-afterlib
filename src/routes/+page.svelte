@@ -9,7 +9,7 @@
 
 <Hero />
 <Testimonials/>
-<Card />
+<!-- <Card /> -->
 <FullStory />
 <PricingPlans />
 <FAQ />

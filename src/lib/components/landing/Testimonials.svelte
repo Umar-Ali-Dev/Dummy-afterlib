@@ -72,7 +72,7 @@
                </div>
             </div>
 
-            <div class="text-lg md:text-xl font-medium leading-8 text-gray-900 ml-px mb-px">
+            <div class="text-lg md:text-xl font-medium leading-8 text-gray-900 ml-px mb-0.5">
                <span class="bg-white px-2 py-1 merged-outline">
                  {review.text}
                </span>
@@ -93,25 +93,29 @@
       {/each}
     </div>
 
-    <div class="flex justify-center items-center gap-4 mt-8">
-      <button 
-        on:click={() => !atStart && scroll('left')}
-        disabled={atStart}
-        class="w-12 h-12 flex items-center justify-center border border-gray-300 bg-white transition-all rounded-sm
-               {atStart ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-50 active:scale-95 cursor-pointer'}"
-      >
-        <img src={arrowIcon} alt="Previous" class="w-5 h-5 opacity-70 rotate-180" />
-      </button>
+<div class="flex justify-center items-center mt-8">
+  <button 
+    on:click={() => !atStart && scroll('left')}
+    disabled={atStart}
+    class="w-12 h-12 flex items-center justify-center border border-gray-300 border-r-0 bg-white transition-all 
+           {atStart ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-50 active:scale-95 cursor-pointer'}"
+  >
+    <img src={arrowIcon} alt="Previous" class="w-5 h-5 opacity-70 rotate-180" />
+  </button>
 
-      <button 
-        on:click={() => !atEnd && scroll('right')}
-        disabled={atEnd}
-        class="w-12 h-12 flex items-center justify-center border border-gray-300 bg-white transition-all rounded-sm
-               {atEnd ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-50 active:scale-95 cursor-pointer'}"
-      >
-         <img src={arrowIcon} alt="Next" class="w-5 h-5 opacity-70" />
-      </button>
-    </div>
+  <!-- Middle thin border -->
+  <div style="width:0.5px; height:48px; background:#d4d4d4;"></div>
+
+  <button 
+    on:click={() => !atEnd && scroll('right')}
+    disabled={atEnd}
+    class="w-12 h-12 flex items-center justify-center border border-gray-300 border-l-0 bg-white transition-all 
+           {atEnd ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-50 active:scale-95 cursor-pointer'}"
+  >
+     <img src={arrowIcon} alt="Next" class="w-5 h-5 opacity-70" />
+  </button>
+</div>
+
 
   </div>
 </section>
