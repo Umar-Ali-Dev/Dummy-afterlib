@@ -44,11 +44,11 @@
   <div class="max-w-7xl mx-auto">
     
     <div class="text-center mb-12 space-y-4">
-      <h2 class="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight leading-tight">
+      <h2 class="font-plus-jakarta-sans text-[40px] font-bold text-center custom-black tracking-tight leading-tight">
         Trusted by professional <br />
         marketers worldwide
       </h2>
-      <div class="inline-block bg-[#00C060] text-white font-bold px-4 py-2 text-xl">
+      <div class="inline-block custom-green text-white font-bold px-1 py-1.5 text-xl h-10">
         Review score 4.9
       </div>
     </div>
@@ -103,7 +103,6 @@
     <img src={arrowIcon} alt="Previous" class="w-5 h-5 opacity-70 rotate-180" />
   </button>
 
-  <!-- Middle thin border -->
   <div style="width:0.5px; height:48px; background:#d4d4d4;"></div>
 
   <button 

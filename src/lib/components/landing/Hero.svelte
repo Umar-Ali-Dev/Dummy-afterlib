@@ -14,7 +14,7 @@
 		<!-- Main Heading -->
 		<div class="text-center mb-6">
 			<h1
-				class=" flex justify-center font-plus-jakarta-sans text-[40px] font-bold text-center text-[#1e1e1e] mb-4"
+				class=" flex justify-center font-plus-jakarta-sans text-[40px] font-bold text-center custom-black mb-4"
 			>
 				See what's scaling<br class="hidden md:block" />
 				and what's about to take off
@@ -32,7 +32,7 @@
 		<!-- CTA Button -->
 		<div class="flex justify-center text-center mb-12">
 			<button
-				class="font-plus-jakarta-sans cursor-pointer text-[18px] font-semibold text-left text-white h-14 px-6 flex justify-center items-center gap-1 bg-[#02a758]"
+				class="font-plus-jakarta-sans cursor-pointer text-[18px] font-semibold text-left text-white h-14 px-6 flex justify-center items-center gap-1 custom-green"
 			>
 				Join AfterLib
 			</button>

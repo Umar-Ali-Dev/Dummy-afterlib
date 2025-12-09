@@ -7,3 +7,10 @@ body {
 .bg-primary{
 	background-color: #fafaf5;
 }
+
+.custom-black{
+	color: #1e1e1e;
+}
+.custom-green{
+	background-color:#02a758
+}
