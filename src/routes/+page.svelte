@@ -9,6 +9,7 @@
   import Testimonials from '$lib/components/landing/Testimonials.svelte';
   import TargetAudienceSection from '$lib/components/landing/TargetAudienceSection.svelte';
   import FeatureTabs from '$lib/components/landing/FeatureTabs.svelte';
+	import ComparisonSection from '$lib/components/landing/ComparisonSection.svelte';
 
   let data: any = null;
   let loading = true;
@@ -54,6 +55,7 @@
   />
 
   <Testimonials/>
+  <ComparisonSection/>
   <TargetAudienceSection/>
   
   <FeatureTabs features={features} />
