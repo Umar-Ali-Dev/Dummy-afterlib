@@ -1,7 +1,7 @@
 <script lang="ts">
-  // --- ASSET IMPORTS ---
   import greenBg2 from '$lib/assets/images/GreenBg2.png';
   import avatar from '$lib/assets/images/Avatar.png';
+  import twitterIcon from '$lib/assets/icons/Twitter.png'; // Make sure this path is correct
 </script>
 
 <section class="w-full bg-primary relative">
@@ -11,29 +11,41 @@
   >
     <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
       
-      <div class="bg-white shadow-xl p-8 md:p-12 space-y-12">
+      <div class="bg-white  shadow-xl p-8 md:p-12 space-y-12">
 
-        <div class="space-y-4">
-          <div class="flex items-center space-x-3">
-            <img src={avatar} alt="User Avatar" class="w-10 h-10 rounded-full" />
-            <div>
-              <p class="text-sm font-semibold text-gray-900 leading-tight">I think all spy tools white label AfterLib</p>
-              <p class="text-xs text-green-600 font-medium">@kes1lav</p>
+        <div class="flex flex-col items-start space-y-0">
+          
+          <div class="flex items-center">
+             <img 
+              src={avatar} 
+              alt="User Avatar" 
+              class="w-8 h-8 object-cover block" 
+            />
+            <div class="bg-black text-white px-4  h-8 flex items-center">
+              <p class="text-lg md:text-xl font-bold leading-none tracking-tight">
+                I think all spy tools white label AfterLib
+              </p>
             </div>
           </div>
-          
-          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-            There are plenty of ad spy tools out there, and every few months another copy pops up
-          </h2>
-          
-          <div class="text-gray-600 space-y-4 leading-relaxed">
-            <p>
-              If you just want to scroll through the same ads everyone else sees and call it "inspiration", any of them will do. Many are even cheaper.
-            </p>
-            <p>
-              Eventually, you might stumble upon a winner by luck.
-            </p>
+
+          <div class=" custom-green px-3  flex items-center gap-2 w-fit h-8">
+            <img src={twitterIcon} alt="Twitter" class="w-4 h-4 brightness-0 invert" />
+            <span class="text-white font-bold text-sm tracking-wide">kes1lav</span>
           </div>
+
+        </div>
+        
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight pt-4">
+          There are plenty of ad spy tools out there, and every few months another copy pops up
+        </h2>
+        
+        <div class="text-gray-600 space-y-4 leading-relaxed">
+          <p>
+            If you just want to scroll through the same ads everyone else sees and call it "inspiration", any of them will do. Many are even cheaper.
+          </p>
+          <p>
+            Eventually, you might stumble upon a winner by luck.
+          </p>
         </div>
 
         <div class="space-y-4 pt-8 border-t border-gray-100">
@@ -66,7 +78,7 @@
           </div>
           
           <div>
-            <button class="bg-[#00b050] hover:bg-[#009945] text-white font-bold py-4 px-8 rounded text-lg transition-colors duration-200">
+            <button class="custom-green hover:bg-[#009945] text-white font-bold py-4 px-8  text-lg transition-colors duration-200">
               Unlock AfterLib
             </button>
           </div>
