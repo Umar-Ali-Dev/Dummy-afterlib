@@ -142,7 +142,7 @@
 
   <div class="space-y-8">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-white border border-gray-200 rounded-lg divide-y md:divide-y-0 md:divide-x divide-gray-200">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-white border border-gray-200  divide-y md:divide-y-0 md:divide-x divide-gray-200">
       {#each topStats as stat}
         <div class="p-6">
           <h3 class="font-bold text-gray-900 mb-1">{stat.title}</h3>
@@ -153,7 +153,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {#each featureCards as card}
-        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col">
+        <div class="bg-white border border-gray-200  overflow-hidden flex flex-col">
           <div class="h-64 bg-gray-100 relative overflow-hidden group">
               <img 
               src={card.image} 
@@ -171,7 +171,7 @@
       {/each}
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-white border border-gray-200 rounded-lg divide-y md:divide-y-0 md:divide-x divide-gray-200">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-white border border-gray-200  divide-y md:divide-y-0 md:divide-x divide-gray-200">
       {#each bottomStats as stat}
         <div class="p-6">
           <h3 class="font-bold text-gray-900 mb-1">{stat.title}</h3>
