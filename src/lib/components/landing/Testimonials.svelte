@@ -40,7 +40,7 @@
   ];
 </script>
 
-<section class="w-full bg-[#FAFAF9] py-16 px-4 md:px-8">
+<section class="w-full bg-primary py-16 px-4 md:px-8">
   <div class="max-w-7xl mx-auto">
     
     <div class="text-center mb-12 space-y-4">
