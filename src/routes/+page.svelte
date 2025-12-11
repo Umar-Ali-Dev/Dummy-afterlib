@@ -17,7 +17,11 @@
     try {
       const result = await client.fetch(`*[_type == "landingPage"][0]{
         heroSection,
-        features,
+        features[]{
+          title,
+          description,
+          "iconUrl": icon.asset->url 
+        },
         faqs,
         footer
       }`);
@@ -52,12 +56,12 @@
   <Testimonials/>
   <TargetAudienceSection/>
   
-  <FeatureTabs  />
+  <FeatureTabs features={features} />
   
   <FullStory />
   <PricingPlans />
   
-  <FAQ  />
+  <FAQ faqs={faqs} />
 
 {:else}
   <div class="flex h-screen w-full items-center justify-center">

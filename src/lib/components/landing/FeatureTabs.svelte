@@ -1,43 +1,56 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
 
-  // 1. Image Imports
+  // 1. ACCEPT DATA FROM SANITY
+  // The parent page passes the 'features' array here.
+  export let features: any[] = [];
+
+  // 2. IMAGE IMPORTS (Used as fallbacks or for other sections)
   import featuresImage from '$lib/assets/images/Features.png';
   import illustration1 from '$lib/assets/images/Illustration1.png';
   import illustration2 from '$lib/assets/images/Illustration2.png';
   import illustration3 from '$lib/assets/images/Illustration3.png';
 
-  // 2. Tab State & Data
+  // 3. MAP SANITY DATA TO UI
+  // If 'features' exists and has data, map it to the structure the UI expects.
+  // Otherwise, fallback to the original hardcoded data (useful if Sanity is empty during dev).
+  $: tabs = features && features.length > 0
+    ? features.map(f => ({
+        name: f.title,                      // Tab button name
+        title: f.title,                     // Content Title
+        description: f.description,         // Content Description
+        image: f.iconUrl || featuresImage   // Sanity Image URL (or fallback)
+      }))
+    : [
+        {
+          name: "Smart categories",
+          title: "Smart categories",
+          description: "Understand your market at every layer.\n\nFilter ads by product categories and customer pain points to find what actually converts.",
+          image: featuresImage
+        },
+        {
+          name: "Smart filters",
+          title: "Smart filters",
+          description: "Refine your search with precision.\n\nUse advanced filtering to isolate specific market segments and identify high-performing trends instantly.",
+          image: illustration1
+        },
+        {
+          name: "Reach & spend transparency",
+          title: "Reach & spend transparency",
+          description: "See exactly where your budget goes.\n\nTrack impression shares and cost-per-acquisition across different demographics to optimize ROI.",
+          image: illustration2
+        },
+        {
+          name: "Performance scores",
+          title: "Performance scores",
+          description: "Data-driven insights for better decisions.\n\nAnalyze ad performance scores to predict success rates before you even launch a campaign.",
+          image: illustration3
+        }
+    ];
+
   let activeTab = 0;
 
-  const tabs = [
-    {
-      name: "Smart categories",
-      title: "Smart categories",
-      description: "Understand your market at every layer.\n\nFilter ads by product categories and customer pain points to find what actually converts.",
-      image: featuresImage
-    },
-    {
-      name: "Smart filters",
-      title: "Smart filters",
-      description: "Refine your search with precision.\n\nUse advanced filtering to isolate specific market segments and identify high-performing trends instantly.",
-      image: illustration1
-    },
-    {
-      name: "Reach & spend transparency",
-      title: "Reach & spend transparency",
-      description: "See exactly where your budget goes.\n\nTrack impression shares and cost-per-acquisition across different demographics to optimize ROI.",
-      image: illustration2
-    },
-    {
-      name: "Performance scores",
-      title: "Performance scores",
-      description: "Data-driven insights for better decisions.\n\nAnalyze ad performance scores to predict success rates before you even launch a campaign.",
-      image: illustration3
-    }
-  ];
-
-  // 3. New Data Arrays for the Bottom UI
+  // --- HARDCODED SECTIONS (Left untouched as requested) ---
   const topStats = [
     { title: "40+ AI-driven categories", text: "For a smarter, more refined search" },
     { title: "Advanced filtering", text: "Find hidden winners others miss" },
@@ -75,6 +88,7 @@
     { title: "Organize like a pro", text: "Skip messy spreadsheets and keep everything organized in one place" }
   ];
 </script>
+
 <section class="w-full bg-primary">
 
 <div class="w-full max-w-6xl mx-auto p-4 mb-20 bg-primary">
@@ -88,7 +102,8 @@
       {#each tabs as tab, index}
         <button
           on:click={() => activeTab = index}
-          class="flex-1 py-4 px-6 text-sm md:text-base font-semibold text-center whitespace-nowrap transition-all duration-200 outline-none
+          class="flex-1 
+          py-4 px-6 text-sm md:text-base font-semibold text-center whitespace-nowrap transition-all duration-200 outline-none
           {activeTab === index 
             ? 'bg-white text-gray-900 border-r border-l border-gray-200 first:border-l-0 last:border-r-0 shadow-[0_2px_0_0_white] translate-y-px' 
             : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'}"
@@ -140,7 +155,7 @@
       {#each featureCards as card}
         <div class="bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col">
           <div class="h-64 bg-gray-100 relative overflow-hidden group">
-             <img 
+              <img 
               src={card.image} 
               alt={card.title} 
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
