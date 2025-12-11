@@ -1,16 +1,19 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
-import type { BlogPost, BlogPostSummary } from './types/sanity';
+import type { BlogPost, BlogPostSummary, LandingPage } from './types/sanity';
 
-// Type for Sanity image sources (works with all versions)
 type SanityImageSource = Parameters<ReturnType<typeof imageUrlBuilder>['image']>[0];
 
-// Sanity client configuration
-export const client = createClient({
-	projectId: import.meta.env.VITE_SANITY_PROJECT_ID || 'mug3d34w',
-	dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
-	useCdn: true, // false if you want to ensure fresh data
-	apiVersion: '2025-12-07' // Use current date
+ export const client = createClient({
+
+projectId: 'mug3d34w', 
+
+dataset: 'production', 
+
+useCdn: false,
+
+apiVersion: '2024-01-01' 
+
 });
 
 // Image URL builder
@@ -213,4 +216,28 @@ export async function getRelatedPosts(
   }`;
 
 	return await client.fetch<BlogPostSummary[]>(query, { postId, categories, limit });
+}
+export async function getLandingPage(): Promise<LandingPage> {
+  const query = `*[_type == "landingPage"][0] {
+    heroSection {
+      mainTitle,
+      subtitle,
+      ctaButton
+    },
+    features[] {
+      title,
+      description,
+      "iconUrl": icon.asset->url
+    },
+    faqs[] {
+      question,
+      answer
+    },
+    footer {
+      copyright,
+      socialLinks
+    }
+  }`;
+
+  return await client.fetch<LandingPage>(query);
 }

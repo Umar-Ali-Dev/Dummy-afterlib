@@ -59,3 +59,29 @@ export interface BlogPostSummary {
 	};
 	categories?: Category[];
 }
+// ... (keep all your existing interfaces like BlogPost, Author, etc.) ...
+
+// NEW: Add this at the very bottom
+export interface LandingPage {
+  heroSection?: {
+    mainTitle: string;
+    subtitle: string;
+    ctaButton?: {
+      label: string;
+      link: string;
+    };
+  };
+  features?: {
+    title: string;
+    description: string;
+    iconUrl?: string; 
+  }[];
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
+  footer?: {
+    copyright: string;
+    socialLinks?: string[];
+  };
+}
