@@ -91,27 +91,27 @@
 
 <section class="w-full bg-primary">
 
-<div class="w-full max-w-6xl mx-auto p-4 mb-20 bg-primary">
+<div class="w-full max-w-7xl mx-auto p-4 mb-20 bg-primary">
     <div class="text-center mb-12">
     <h2 class="h-primary">
       A glimpse of what’s waiting for you
     </h2>
   </div>
-  <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col mb-12">
-    <div class="flex overflow-x-auto border-b border-gray-200 bg-gray-50/50">
-      {#each tabs as tab, index}
-        <button
-          on:click={() => activeTab = index}
-          class="flex-1 
-          py-4 px-6 text-sm md:text-base font-semibold text-center whitespace-nowrap transition-all duration-200 outline-none
-          {activeTab === index 
-            ? 'bg-white text-gray-900 border-r border-l border-gray-200 first:border-l-0 last:border-r-0 shadow-[0_2px_0_0_white] translate-y-px' 
-            : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'}"
-        >
-          {tab.name}
-        </button>
-      {/each}
-    </div>
+  <div class="bg-white border border-gray-200  shadow-sm overflow-hidden flex flex-col mb-12">
+   <div class="flex overflow-x-auto scrollbar-hide border-b border-gray-200 bg-gray-50/50">
+  {#each tabs as tab, index}
+    <button
+      on:click={() => activeTab = index}
+      class="flex-1 
+      py-4 px-6 text-sm md:text-base font-semibold text-center whitespace-nowrap transition-all duration-200 outline-none
+      {activeTab === index 
+        ? 'bg-white text-gray-900 border-r border-l border-gray-200 first:border-l-0 last:border-r-0 shadow-[0_2px_0_0_white] translate-y-px' 
+        : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'}"
+    >
+      {tab.name}
+    </button>
+  {/each}
+</div>
 
     <div class="flex flex-col md:flex-row min-h-[400px]">
       <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">

@@ -14,6 +14,14 @@ body {
 .custom-green{
 	background-color:#02a758
 }
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+  }
 .h-primary {
   font-size: 1.875rem;
   line-height: 2.25rem;
