@@ -6,11 +6,13 @@
 	import Card from '$lib/components/landing/Card.svelte';
 	import Testimonials from '$lib/components/landing/Testimonials.svelte';
 	import TargetAudienceSection from '$lib/components/landing/TargetAudienceSection.svelte';
+	import FeatureTabs from '$lib/components/landing/FeatureTabs.svelte';
 </script>
 
 <Hero />
 <Testimonials/>
 <TargetAudienceSection/>
+<FeatureTabs/>
 <!-- <Card /> -->
 <FullStory />
 <PricingPlans />
