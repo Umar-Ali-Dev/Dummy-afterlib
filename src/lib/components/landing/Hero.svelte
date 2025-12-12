@@ -35,29 +35,43 @@
       </a>
     </div>
 
-    <div class="mx-auto">
-      <div class="relative bg-gray-100 rounded-xl shadow-2xl border border-gray-200">
-        <div class="relative bg-linear-to-br from-gray-50 to-gray-100">
-           <div class="relative">
-              <img
-              src={adsLibrary}
-              alt="Dashboard Preview"
-              class="w-full h-full object-cover"
-            />
-            <div class="flex items-center left-0 right-0 absolute top-0 h-12 m-auto -mt-4 max-w-fit gap-1">
-            <div class="bg-black text-white px-3 flex items-center max-w-fit h-12 m-auto">
-              <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              <span class="font-semibold">Watch demo</span>
+  <div class="mx-auto">
+    <div class="relative  border border-gray-200">
+        <div class="relative bg-linear-to-br from-gray-50 to-gray-100 "> 
+            
+            <div 
+                class="relative rounded-lg " 
+            >
+                
+                <img
+                    src={adsLibrary}
+                    alt="Dashboard Preview"
+                    class="w-full h-full object-cover" 
+                />
+                
+                <div 
+                    class="absolute inset-0 z-10"
+                    style="
+                        /* Starts white at the bottom (0%) and becomes transparent at 40% height */
+                        background-image: linear-gradient(to top, white 0%, transparent 40%);
+                        z-index: 10;
+                    "
+                ></div>
+
+                <div class="flex items-center left-0 right-0 absolute top-0 h-12 m-auto -mt-4 max-w-fit gap-1 z-20">
+                    <div class="bg-black text-white px-3 flex items-center max-w-fit h-12 m-auto">
+                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        <span class="font-semibold">Watch demo</span>
+                    </div>
+                    <div class="bg-black text-white px-3 flex items-center max-w-fit h-12 m-auto">
+                        01:25
+                    </div>
+                </div>
             </div>
-            <div class="bg-black text-white px-3 flex items-center max-w-fit h-12 m-auto">
-              01:25
-            </div>
-            </div>
-          </div>
-      </div>
+        </div>
     </div>
-  </div>
+</div>
   </div>
 </section>
