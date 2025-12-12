@@ -45,7 +45,7 @@
 	}
 </script>
 
-<header class="bg-[#fafaf5] py-6 relative">
+<header class="bg-[#fafaf5] py-6 relative sticky top-0 z-50">
 	<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex justify-between items-center h-16">
 			<div class="flex items-center">
