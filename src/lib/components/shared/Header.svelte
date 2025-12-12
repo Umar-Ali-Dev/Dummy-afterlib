@@ -1,14 +1,19 @@
 <script>
+	// 1. IMPORT GOTO AND PAGE FROM SVELTEKIT
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores'; // Used to check the current route
+	import { get } from 'svelte/store'; // Helper for reading the store
+	
 	import logo from '$lib/assets/logo.png';
 
 	let isMenuOpen = false;
 
+	// Note: hrefs are kept as hashes (#...)
 	const navigation = [
 		{ name: 'Pricing', href: '#pricing' },
 		{ name: 'Features', href: '#features' },
-		// Affiliate link remains a smooth scroll to TestimonialsSection
 		{ name: 'Affiliate', href: '#affiliate' },
-		// Blog remains a standard URL
+		// Blog remains a standard URL that navigates away
 		{ name: 'Blog', href: '/blog' }
 	];
 
@@ -20,28 +25,38 @@
 		isMenuOpen = false;
 	}
 
-	// Function to handle smooth scrolling
+	// 2. MODIFIED: Function to handle smooth scrolling across routes
 	function scrollToTarget(event, href) {
-		// Only run custom scroll for hash links (#...)
-		if (href.startsWith('#')) {
-			event.preventDefault(); // Stop default anchor jump
+		const isHashLink = href.startsWith('#');
+		closeMenu(); // Close mobile menu immediately
 
-			// Get the ID: 'pricing', 'features', 'affiliate', or 'signup-contact'
-			const id = href.substring(1); 
+		if (!isHashLink) {
+			// It's a regular link like /blog, let default navigation happen
+			return;
+		}
+
+		event.preventDefault(); // Prevent default hash jump
+
+		const currentPage = get(page).url.pathname;
+		const targetPath = '/'; // The components are always on the root route
+
+		if (currentPage === targetPath) {
+			// Case 1: Already on the home page, perform smooth scroll locally
+			const id = href.substring(1);
 			const target = document.getElementById(id);
 
 			if (target) {
-				// Use the native window scroll method for smooth behavior
 				window.scrollTo({
 					top: target.offsetTop,
 					behavior: 'smooth'
 				});
-				closeMenu(); // Close mobile menu after clicking a link
 			}
 		} else {
-            // Ensure mobile menu closes for regular links
-            closeMenu();
-        }
+			// Case 2: Not on the home page (e.g., /blog), navigate home and append the hash
+			// SvelteKit will navigate to the home page, and then the browser will automatically
+			// handle the scroll once the element exists in the DOM.
+			goto(`${targetPath}${href}`);
+		}
 	}
 </script>
 
