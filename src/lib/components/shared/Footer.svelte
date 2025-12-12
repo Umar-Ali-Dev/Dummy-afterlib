@@ -2,27 +2,38 @@
 	import { onMount } from 'svelte';
 	// You will need to make sure the sanity client is accessible here:
 	import { client } from '$lib/sanity'; 
-
+    
 	// Assets
 	import logo from '$lib/assets/logo.png';
 	import iconChatEmpty from '$lib/assets/footer/icon-chat-empty.svg';
 	import iconHelp from '$lib/assets/footer/icon-help.svg';
 	import iconLeaves from '$lib/assets/footer/icon-leaves.svg';
 	import star from '$lib/assets/footer/star.svg';
-	import twitter from '$lib/assets/footer/twitter.svg';
-	import telegram from '$lib/assets/footer/telegram.svg';
+    // Removed local twitter and telegram imports since icons are fetched dynamically
 
 	const currentYear = new Date().getFullYear();
     
-    // State for fetched data
-    let footerData: { copyright: string, socialLinks: string[] } | null = null;
+    // Define the expected structure for fetched data
+    let footerData: { 
+        copyright: string; 
+        socialLinks: { url: string; iconUrl: string; }[] | undefined; 
+    } | null = null;
+    
     let loading = true;
 
     // Fetch the data on component mount
     onMount(async () => {
         try {
-            // Fetching only the footer object
-            const result = await client.fetch(`*[_type == "landingPage"][0]{ footer }`);
+            // UPDATED QUERY: Fetching only the footer object, explicitly including the icon URL
+            const result = await client.fetch(`*[_type == "landingPage"][0]{ 
+                footer{
+                    copyright,
+                    socialLinks[]{
+                        url,
+                        "iconUrl": icon.asset->url
+                    }
+                }
+            }`);
             footerData = result?.footer;
         } catch (error) {
             console.error("Error fetching footer data:", error);
@@ -51,25 +62,15 @@
 		]
 	};
 
-    /**
-     * Helper functions to match the URL to a local icon asset.
-     * We need to add a local LinkedIn icon or use a public SVG URL.
-     */
-    const getSocialIcon = (url: string) => {
-        if (url.includes('twitter')) return twitter;
-        if (url.includes('linkedin')) return "https://www.svgrepo.com/show/349340/linkedin.svg"; 
-        if (url.includes('telegram')) return telegram;
-        // Default icon if link is unknown
-        return null; 
-    };
-
+    // Helper to extract a friendly name for accessibility from the URL
     const getSocialName = (url: string) => {
-        if (url.includes('twitter')) return 'Twitter';
-        if (url.includes('linkedin')) return 'LinkedIn';
-        if (url.includes('telegram')) return 'Telegram';
-        return 'Social Link';
+        try {
+            const hostname = new URL(url).hostname;
+            return hostname.split('.').slice(-2, -1)[0] || 'Social Link';
+        } catch {
+            return 'Social Link';
+        }
     };
-
 </script>
 
 <footer class="bg-[#fafaf5]">
@@ -84,8 +85,7 @@
                     </a>
                 </div>
 
-                <h3 class=" font-plus-jakarta-sans text-2xl font-bold text-left text-[#1e1e1e] 
-                mb-3">
+                <h3 class=" font-plus-jakarta-sans text-2xl font-bold text-left text-[#1e1e1e] mb-3">
                     Ready to find winning ads<br class="hidden sm:block" />
                     and outscale your competitors?
                 </h3>
@@ -176,15 +176,15 @@
 
 			<div class="flex space-x-4">
 				{#if footerData?.socialLinks && !loading}
-					{#each footerData.socialLinks as linkUrl}
+					{#each footerData.socialLinks as link}
 						<a
-							href={linkUrl}
+							href={link.url}
 							target="_blank"
 							rel="noopener noreferrer"
 							class="text-gray-600 hover:text-gray-900 transition-colors"
-							aria-label={getSocialName(linkUrl)}
+							aria-label={getSocialName(link.url)}
 						>
-							<img src={getSocialIcon(linkUrl)} alt={getSocialName(linkUrl)} class="w-5 h-5" />
+							<img src={link.iconUrl} alt={getSocialName(link.url)} class="w-5 h-5" />
 						</a>
 					{/each}
 				{:else}
@@ -195,8 +195,7 @@
 						class="text-gray-600 hover:text-gray-900 transition-colors"
 						aria-label="Twitter"
 					>
-						<img src={twitter} alt="twitter" class="w-5 h-5" />
-					</a>
+                        </a>
 					<a
 						href="https://telegram.org"
 						target="_blank"
@@ -204,8 +203,7 @@
 						class="text-gray-600 hover:text-gray-900 transition-colors"
 						aria-label="Telegram"
 					>
-						<img src={telegram} alt="telegram" class="w-5 h-5" />
-					</a>
+                         </a>
 				{/if}
 			</div>
 		</div>
