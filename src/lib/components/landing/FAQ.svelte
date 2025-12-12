@@ -32,7 +32,7 @@
 			<p
 				class="self-stretch flex justify-start sm:justify-center font-plus-jakarta-sans text-[18px] sm:text-2xl text-left sm:text-center text-[#1e1e1e]"
 			>
-				Everything you need to know about PlotPick.
+				Everything you need to know about AfterLib.
 			</p>
 		</div>
 

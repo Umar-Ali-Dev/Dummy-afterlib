@@ -44,7 +44,7 @@
 
 {#if loading}
   <div class="flex h-screen w-full items-center justify-center bg-white">
-    <p class="text-xl font-medium text-gray-500">Loading PlotPick...</p>
+    <p class="text-xl font-medium text-gray-500">Loading AfterLib...</p>
   </div>
 
 {:else if data}

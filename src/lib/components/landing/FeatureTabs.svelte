@@ -91,7 +91,7 @@
 
 <section class="w-full bg-primary">
 
-<div class="w-full max-w-7xl mx-auto p-4 mb-20 bg-primary">
+<div class="w-full max-w-7xl mx-auto pb-24 bg-primary">
     <div class="text-center mb-12">
     <h2 class="h-primary">
       A glimpse of what’s waiting for you

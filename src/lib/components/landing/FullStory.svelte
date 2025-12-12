@@ -9,7 +9,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-16 py-32">
         <div class="flex justify-center items-center flex-col gap-8">
             <div class="w-full md:w-160 flex font-plus-jakarta-sans text-[40px] font-bold text-left text-[#1e1e1e]">
-                How PlotPick became a real product
+                How AfterLib became a real product
             </div>
             <div class="w-full md:w-160 flex font-plus-jakarta-sans text-2xl text-left text-[#1e1e1e]">
                 We started with dropshipping stores in 2018, scaled to 8 figures, and by 2022 most spy tools
@@ -22,7 +22,7 @@
         </div>
         <div class="flex justify-center items-center flex-col gap-8">
             <div class="w-full md:w-160 flex font-plus-jakarta-sans text-[40px] font-bold text-left text-[#1e1e1e]">
-                That’s why we built PlotPick
+                That’s why we built AfterLib
             </div>
             <div class="w-full md:w-160 flex font-plus-jakarta-sans text-2xl text-left text-[#1e1e1e]">
                 A tool that meets our own standards for accuracy, speed, and depth. And we keep improving it

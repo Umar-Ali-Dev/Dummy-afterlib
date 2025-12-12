@@ -36,103 +36,94 @@
 		class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-18 pb-8 border-t border-[#e0e0e0] border-solid"
 	>
 		<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-			<!-- Brand Section (Left) -->
-			<div class="md:col-span-12">
-				<!-- Logo -->
-				<div class="flex items-center mb-8">
-					<a href="/" class="flex items-center">
-						<img src={logo} alt="logo" class="w-full" />
-					</a>
-				</div>
+    <div class="md:col-span-4">
+        <div class="flex items-center mb-8">
+            <a href="/" class="flex items-center">
+                <img src={logo} alt="logo" class="w-full" />
+            </a>
+        </div>
 
-				<!-- Tagline -->
-				<h3 class=" font-plus-jakarta-sans text-2xl font-bold text-left text-[#1e1e1e] mb-3">
-					Ready to find winning ads<br class="hidden sm:block" />
-					and outscale your competitors?
-				</h3>
+        <h3 class=" font-plus-jakarta-sans text-2xl font-bold text-left text-[#1e1e1e] mb-3">
+            Ready to find winning ads<br class="hidden sm:block" />
+            and outscale your competitors?
+        </h3>
 
-				<!-- Description -->
-				<p class="font-plus-jakarta-sans text-lg text-left text-[#1e1e1e] mb-6">
-					Join thousands of marketers who trust<br class="hidden sm:block" />
-					AfterLib for real ad intelligence.<br class="hidden sm:block" />
-					No fake data. No hype. Just facts.
-				</p>
+        <p class="font-plus-jakarta-sans text-lg text-left text-[#1e1e1e] mb-6">
+            Join thousands of marketers who trust<br class="hidden sm:block" />
+            AfterLib for real ad intelligence.<br class="hidden sm:block" />
+            No fake data. No hype. Just facts.
+        </p>
 
-				<!-- CTA Button -->
-				<button
-					class="w-full sm:w-auto cursor-pointer h-14 flex font-plus-jakarta-sans text-md font-bold text-white flex-row justify-center items-center gap-2 p-4 md:px-8 bg-[#02a758]"
-				>
-					Start winning
-				</button>
-			</div>
+        <button
+            class="w-full sm:w-auto cursor-pointer h-12 flex font-plus-jakarta-sans text-[14px] font-bold text-white flex-row justify-center items-center gap-2 p-4 md:px-8 bg-[#02a758]"
+        >
+            Start winning
+        </button>
+    </div>
 
-			<!-- Links Sections (Right) -->
-			<div class="md:col-span-12 grid grid-cols-2 lg:grid-cols-3 gap-8">
-				<!-- Main Column -->
-				<div>
-					<h4
-						class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm leading-[1.43px] text-left text-[#3d3d3d] mb-6"
-					>
-						Main
-					</h4>
-					<ul class="space-y-3">
-						{#each footerLinks.main as link}
-							<li>
-								<a
-									href={link.href}
-									class="self-stretch font-plus-jakarta-sans text-[14px] font-bold leading-[1.43px] text-left text-[#1e1e1e]"
-								>
-									{link.name}
-								</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
+    <div class="md:col-span-8 grid grid-cols-2 lg:grid-cols-3 gap-8">
+        <div>
+            <h4
+                class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm leading-[1.43px] text-left text-[#3d3d3d] mb-6"
+            >
+                Main
+            </h4>
+            <ul class="space-y-3">
+                {#each footerLinks.main as link}
+                    <li>
+                        <a
+                            href={link.href}
+                            class="self-stretch font-plus-jakarta-sans text-[14px] font-bold leading-[1.43px] text-left text-[#1e1e1e]"
+                        >
+                            {link.name}
+                        </a>
+                    </li>
+                {/each}
+            </ul>
+        </div>
 
-				<!-- Resources Column -->
-				<div>
-					<h4
-						class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm text-left text-[#3d3d3d] mb-6"
-					>
-						Resources
-					</h4>
-					<ul class="space-y-3">
-						{#each footerLinks.resources as link}
-							<li>
-								<a
-									href={link.href}
-									class="flex items-center gap-2 self-stretch font-plus-jakarta-sans text-[14px] font-bold text-left text-[#1e1e1e]"
-								>
-									<img src={link.icon} alt={link.name} class="w-6 h-6" />
-									{link.name}
-								</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
+        <div>
+            <h4
+                class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm text-left text-[#3d3d3d] mb-6"
+            >
+                Resources
+            </h4>
+            <ul class="space-y-3">
+                {#each footerLinks.resources as link}
+                    <li>
+                        <a
+                            href={link.href}
+                            class="flex items-center gap-2 self-stretch font-plus-jakarta-sans text-[14px] font-bold text-left text-[#1e1e1e]"
+                        >
+                            <img src={link.icon} alt={link.name} class="w-6 h-6" />
+                            {link.name}
+                        </a>
+                    </li>
+                {/each}
+            </ul>
+        </div>
 
-				<!-- Legal Column -->
-				<div>
-					<h4
-						class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm text-left text-[#3d3d3d] mb-6"
-					>
-						Legal
-					</h4>
-					<ul class="space-y-3">
-						{#each footerLinks.legal as link}
-							<li>
-								<a
-									href={link.href}
-									class="self-stretch font-plus-jakarta-sans text-[14px] font-bold text-left text-[#1e1e1e]"
-								>
-									{link.name}
-								</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
-			</div>
-		</div>
+        <div>
+            <h4
+                class="font-normal opacity-[0.6] font-plus-jakarta-sans text-sm text-left text-[#3d3d3d] mb-6"
+            >
+                Legal
+            </h4>
+            <ul class="space-y-3">
+                {#each footerLinks.legal as link}
+                    <li>
+                        <a
+                            href={link.href}
+                            class="self-stretch font-plus-jakarta-sans text-[14px] font-bold text-left text-[#1e1e1e]"
+                        >
+                            {link.name}
+                        </a>
+                    </li>
+                {/each}
+            </ul>
+        </div>
+    </div>
+</div>
 
 		<!-- Bottom Bar -->
 		<div class="border-t border-[#e0e0e0] mt-12 pt-8 flex justify-between items-center">
