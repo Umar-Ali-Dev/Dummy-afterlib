@@ -2,25 +2,38 @@
   import { fade } from 'svelte/transition';
 
   // 1. ACCEPT DATA FROM SANITY
-  // The parent page passes the 'features' array here.
   export let features: any[] = [];
+  export let services: any[] = []; // Accepted services prop
 
-  // 2. IMAGE IMPORTS (Used as fallbacks or for other sections)
+  // 2. IMAGE IMPORTS
   import featuresImage from '$lib/assets/images/Features.png';
   import illustration1 from '$lib/assets/images/Illustration1.png';
   import illustration2 from '$lib/assets/images/Illustration2.png';
   import illustration3 from '$lib/assets/images/Illustration3.png';
 
-  // 3. MAP SANITY DATA TO UI
-  // If 'features' exists and has data, map it to the structure the UI expects.
-  // Otherwise, fallback to the original hardcoded data (useful if Sanity is empty during dev).
-  $: tabs = features && features.length > 0
-    ? features.map(f => ({
-        name: f.title,                      // Tab button name
-        title: f.title,                     // Content Title
-        description: f.description,         // Content Description
-        image: f.iconUrl || featuresImage   // Sanity Image URL (or fallback)
-      }))
+  // 3. COMBINE SANITY DATA FOR MAIN TABS (Existing logic)
+  $: sanityTabs = [
+    // Map Features data
+    ...(features || []).map(f => ({
+      name: f.title,                      
+      title: f.title,                     
+      description: f.description,         
+      image: f.iconUrl || featuresImage,  
+      type: 'feature'
+    })),
+    // Map Services data
+    ...(services || []).map(s => ({
+      name: s.title,
+      title: s.title,
+      description: s.description,
+      image: s.imageUrl || featuresImage, 
+      type: 'service'
+    }))
+  ];
+
+  // 4. FINAL TABS ARRAY LOGIC (using combined data or hardcoded fallback)
+  $: tabs = sanityTabs.length > 0 
+    ? sanityTabs
     : [
         {
           name: "Smart categories",
@@ -50,7 +63,7 @@
 
   let activeTab = 0;
 
-  // --- HARDCODED SECTIONS (Left untouched as requested) ---
+  // --- HARDCODED SECTIONS ---
   const topStats = [
     { title: "40+ AI-driven categories", text: "For a smarter, more refined search" },
     { title: "Advanced filtering", text: "Find hidden winners others miss" },
@@ -58,29 +71,39 @@
     { title: "Growth signals", text: "Track ads with data-proven momentum" }
   ];
 
-  const featureCards = [
-    {
-      title: "Page insights",
-      description: "See total page reach, creatives, and performance signals to instantly understand what's working",
-      image: illustration1
-    },
-    {
-      title: "On-demand page tracking",
-      description: "Import any page and track every creative, launch, and growth signal across e-commerce, lead gen, affiliate, and more",
-      image: illustration2
-    },
-    {
-      title: "Smart notifications",
-      description: "Get instant alerts on your phone when ads scale, pages launch, or new winners appear. Stay ahead without manual checks",
-      image: illustration3
-    },
-    {
-      title: "Smart collections & workflow",
-      description: "Import Sheets, bulk analyze, and organize competitors and ads at scale to save hours every week for you and your team",
-      image: featuresImage
-    }
-  ];
-
+  // ✨ NEW LOGIC: Use 'services' data for featureCards, or the hardcoded default. ✨
+  $: featureCards = services && services.length > 0
+    ? services.map(s => ({
+        // Mapping fields from services (title, description, imageUrl)
+        title: s.title,
+        description: s.description,
+        image: s.imageUrl || featuresImage // Use imageUrl from Sanity, or a default image
+      }))
+    : [
+        // Hardcoded defaults if Sanity data is not present
+        {
+          title: "Page insights",
+          description: "See total page reach, creatives, and performance signals to instantly understand what's working",
+          image: illustration1
+        },
+        {
+          title: "On-demand page tracking",
+          description: "Import any page and track every creative, launch, and growth signal across e-commerce, lead gen, affiliate, and more",
+          image: illustration2
+        },
+        {
+          title: "Smart notifications",
+          description: "Get instant alerts on your phone when ads scale, pages launch, or new winners appear. Stay ahead without manual checks",
+          image: illustration3
+        },
+        {
+          title: "Smart collections & workflow",
+          description: "Import Sheets, bulk analyze, and organize competitors and ads at scale to save hours every week for you and your team",
+          image: featuresImage
+        }
+    ];
+  // ✨ END NEW LOGIC ✨
+  
   const bottomStats = [
     { title: "1M+ competitor pages", text: "Explore the page library we pioneered" },
     { title: "Never miss any data", text: "See what drives competitors growth before it happens" },
@@ -104,6 +127,7 @@
       on:click={() => activeTab = index}
       class="flex-1 
       py-4 px-6 text-sm md:text-base font-semibold text-center whitespace-nowrap transition-all duration-200 outline-none
+  
       {activeTab === index 
         ? 'bg-white text-gray-900 border-r border-l border-gray-200 first:border-l-0 last:border-r-0 shadow-[0_2px_0_0_white] translate-y-px' 
         : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'}"
@@ -117,6 +141,7 @@
       <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
         {#key activeTab}
           <div in:fade={{ duration: 200 }}>
+   
             <h2 class="heading-primary mb-6">
               {tabs[activeTab].title}
             </h2>
@@ -125,6 +150,7 @@
             </p>
           </div>
         {/key}
+   
       </div>
       <div class="w-full md:w-1/2 bg-gray-100 relative overflow-hidden">
         {#key activeTab}
@@ -133,6 +159,7 @@
             alt={tabs[activeTab].title}
             in:fade={{ duration: 300 }}
             class="absolute inset-0 w-full h-full object-cover object-left"
+         
           />
         {/key}
       </div>
@@ -149,15 +176,17 @@
           <p class="text-sm text-gray-500">{stat.text}</p>
         </div>
       {/each}
+   
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {#each featureCards as card}
+      {#each featureCards as card} 
         <div class="bg-white border border-gray-200  overflow-hidden flex flex-col">
           <div class="h-64 bg-gray-100 relative overflow-hidden group">
               <img 
               src={card.image} 
               alt={card.title} 
+       
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
              />
           </div>
@@ -165,6 +194,7 @@
             <h3 class="text-2xl font-bold text-gray-900 mb-3">{card.title}</h3>
             <p class="text-gray-600 leading-relaxed">
               {card.description}
+         
             </p>
           </div>
         </div>
@@ -177,6 +207,7 @@
           <h3 class="font-bold text-gray-900 mb-1">{stat.title}</h3>
           <p class="text-sm text-gray-500">{stat.text}</p>
         </div>
+  
       {/each}
     </div>
 

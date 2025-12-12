@@ -12,7 +12,7 @@
 	import ComparisonSection from '$lib/components/landing/ComparisonSection.svelte';
 	import TestimonialsSection from '$lib/components/landing/TestimonialsSection.svelte';
 	import CustomerTestimonials from '$lib/components/landing/CustomerTestimonials.svelte';
-
+    
   let data: any = null;
   let loading = true;
 
@@ -23,7 +23,13 @@
         features[]{
           title,
           description,
-          "iconUrl": icon.asset->url 
+          "iconUrl": image.asset->url // Fetching the URL for the 'image' field
+        },
+        // Fetching the new services data
+        services[]{ 
+          title,
+          description,
+          "imageUrl": image.asset->url // Using a different key name to prevent conflicts
         },
         faqs,
        
@@ -41,6 +47,8 @@
 
   $: hero = data?.heroSection;
   $: features = data?.features;
+  // Exposing the services data
+  $: services = data?.services; 
   $: faqs = data?.faqs;
 </script>
 
@@ -62,7 +70,7 @@
   <TargetAudienceSection/>
   
   <div id="features">
-    <FeatureTabs features={features} />
+    <FeatureTabs features={features} services={services} /> 
   </div>
   
   <div id="affiliate">
@@ -77,7 +85,8 @@
   </div>
   
   <div id="signup-contact">
-    <FAQ faqs={faqs} />
+   
+   <FAQ faqs={faqs} />
   </div>
 
 {:else}
