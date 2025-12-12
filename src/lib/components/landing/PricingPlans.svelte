@@ -1,4 +1,57 @@
 <script>
+    // 1. IMPORT ALL NECESSARY ICONS DIRECTLY
+    // Payment Icons
+    import applyPayIcon from '$lib/assets/icons/ApplyPay.png';
+    import visaIcon from '$lib/assets/icons/Visa.png';
+    // NOTE: Using the file name 'MasteCcard' exactly as provided in your list
+    import mastercardIcon from '$lib/assets/icons/MasteCcard.png';
+    import americanExpressIcon from '$lib/assets/icons/AmericanExpress.png';
+    import googlePayIcon from '$lib/assets/icons/GooglePay.png';
+
+    // Info Icons
+    import verifiedIcon from '$lib/assets/icons/IconVerified.png';
+    import creditCardIcon from '$lib/assets/icons/CreditCard.png';
+
+
+    // 2. CONSTRUCT DATA ARRAYS USING THE IMPORTED VARIABLES
+
+    // Array for Payment Icons
+    const paymentIcons = [
+        { 
+            src: applyPayIcon, 
+            alt: 'Apple Pay' 
+        },
+        { 
+            src: visaIcon, 
+            alt: 'Visa' 
+        },
+        { 
+            src: mastercardIcon, 
+            alt: 'Mastercard' 
+        },
+        { 
+            src: americanExpressIcon, 
+            alt: 'American Express' 
+        },
+        { 
+            src: googlePayIcon, 
+            alt: 'Google Pay' 
+        },
+    ];
+
+    // Data for Info Icons (Secured Payment and Cancel Anytime)
+    const infoIcons = [
+        { 
+            src: verifiedIcon, 
+            text: 'Secured payment',
+            alt: 'Verified Checkmark' 
+        },
+        { 
+            src: creditCardIcon, 
+            text: 'Cancel anytime', 
+            alt: 'Credit Card' 
+        }
+    ];
 	const pricingPlans = [
 		{
 			name: 'Starter',
@@ -64,7 +117,7 @@
 	];
 </script>
 
-<div class="min-h-screen bg-[#02a758] py-16 px-4 sm:px-6 lg:px-8">
+<div class="min-h-screen custom-green py-16 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
 		<!-- Header -->
 		<div class="text-center mb-12">
@@ -135,7 +188,7 @@
 									<span class="mr-2 mt-0.5">
 										{#if feature.icon}
 											<svg
-												class="w-5! h-5! bg-[#02a758] rounded-2xl text-white"
+												class="w-5! h-5! custom-green rounded-2xl text-white"
 												fill="currentColor"
 												viewBox="0 0 20 20"
 											>
@@ -208,43 +261,33 @@
 			{/each}
 		</div>
 
-		<!-- Payment Icons are missing -->
+		<div class=" p-4 text-white">
+    
+    <div class="flex justify-center items-center space-x-2 sm:space-x-4 mb-8">
+        {#each paymentIcons as icon}
+            <img 
+                src={icon.src} 
+                alt={icon.alt} 
+                class="h-5 w-auto" 
+            />
+        {/each}
+    </div>
 
-		<!-- <div class="flex flex-wrap justify-center items-center gap-4 mb-6">
-			<span class="text-white text-sm"> Pay</span>
-			<span class="text-white text-sm">VISA</span>
-			<span class="text-white text-sm">●●</span>
-			<span class="text-white text-sm">AMEX</span>
-			<span class="text-white text-sm">G Pay</span>
-		</div> -->
 
-		<!-- Trust Badges -->
-		<div class="flex flex-wrap justify-center items-center gap-6 mb-6">
-			<div class="flex items-center gap-2 text-white text-sm">
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-					/>
-				</svg>
-				Secured payment
-			</div>
-			<div class="flex items-center gap-2 text-white text-sm">
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-					/>
-				</svg>
-				Cancel anytime
-			</div>
-		</div>
-
-		<!-- Trust Message -->
+    <div class="flex justify-center items-center text-sm font-light space-x-6 mb-6">
+        {#each infoIcons as info}
+            <div class="flex items-center space-x-1">
+                <img 
+                    src={info.src} 
+                    alt={info.alt} 
+                    class="h-5 w-5" 
+                />
+                <span>{info.text}</span>
+            </div>
+        {/each}
+    </div>
+</div>
+		
 		<div class="text-center">
 			<p
 				class="font-plus-jakarta-sans text-lg font-semibold text-center text-[#1e1e1e] inline-block bg-white px-1 py-1"
