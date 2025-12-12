@@ -26,6 +26,7 @@
           "iconUrl": icon.asset->url 
         },
         faqs,
+       
         footer
       }`);
       
@@ -60,13 +61,24 @@
   <ComparisonSection/>
   <TargetAudienceSection/>
   
-  <FeatureTabs features={features} />
-  <TestimonialsSection/>
+  <div id="features">
+    <FeatureTabs features={features} />
+  </div>
+  
+  <div id="affiliate">
+    <TestimonialsSection/>
+  </div>
+  
   <FullStory />
   <CustomerTestimonials/>
-  <PricingPlans />
   
-  <FAQ faqs={faqs} />
+  <div id="pricing">
+    <PricingPlans />
+  </div>
+  
+  <div id="signup-contact">
+    <FAQ faqs={faqs} />
+  </div>
 
 {:else}
   <div class="flex h-screen w-full items-center justify-center">

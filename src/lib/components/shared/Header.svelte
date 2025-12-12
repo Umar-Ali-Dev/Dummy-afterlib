@@ -4,9 +4,11 @@
 	let isMenuOpen = false;
 
 	const navigation = [
-		{ name: 'Pricing', href: '/pricing' },
-		{ name: 'Features', href: '/features' },
-		{ name: 'Affiliate', href: '/affiliate' },
+		{ name: 'Pricing', href: '#pricing' },
+		{ name: 'Features', href: '#features' },
+		// Affiliate link remains a smooth scroll to TestimonialsSection
+		{ name: 'Affiliate', href: '#affiliate' },
+		// Blog remains a standard URL
 		{ name: 'Blog', href: '/blog' }
 	];
 
@@ -17,12 +19,35 @@
 	function closeMenu() {
 		isMenuOpen = false;
 	}
+
+	// Function to handle smooth scrolling
+	function scrollToTarget(event, href) {
+		// Only run custom scroll for hash links (#...)
+		if (href.startsWith('#')) {
+			event.preventDefault(); // Stop default anchor jump
+
+			// Get the ID: 'pricing', 'features', 'affiliate', or 'signup-contact'
+			const id = href.substring(1); 
+			const target = document.getElementById(id);
+
+			if (target) {
+				// Use the native window scroll method for smooth behavior
+				window.scrollTo({
+					top: target.offsetTop,
+					behavior: 'smooth'
+				});
+				closeMenu(); // Close mobile menu after clicking a link
+			}
+		} else {
+            // Ensure mobile menu closes for regular links
+            closeMenu();
+        }
+	}
 </script>
 
 <header class="bg-[#fafaf5] py-6 relative">
 	<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex justify-between items-center h-16">
-			<!-- Logo -->
 			<div class="flex items-center">
 				<a href="/" class="flex items-center">
 					<img src={logo} alt="logo" class="w-[90px]" />
@@ -34,27 +59,29 @@
 				</span>
 			</div>
 
-			<!-- Desktop Navigation -->
 			<div class="hidden md:flex md:items-center md:space-x-6">
 				{#each navigation as item}
 					<a
 						href={item.href}
+						on:click={(e) => scrollToTarget(e, item.href)}
 						class=" flex flex-row justify-center items-center gap-1 p-2 border #c2c2c2 border-solid bg-[#fafaf5] font-plus-jakarta-sans text-left text-[#1e1e1e] text-sm font-medium transition-colors"
 					>
 						{item.name}
 					</a>
 				{/each}
 				<button
+					on:click={(e) => scrollToTarget(e, '#signup-contact')}
 					class="font-plus-jakarta-sans cursor-pointer text-sm font-semibold text-left text-white p-2 flex justify-center items-center gap-1 shadow-[0 0.5px 0.8px 0 rgba(10, 19, 53, 0.08), 0 0 0.5px 0 rgba(0, 0, 0, 0.4), 0 0 0.5px 0 rgba(0, 0, 0, 0.64)] bg-[#02a758]"
 				>
 					Join AfterLib
 				</button>
 			</div>
 
-			<!-- Mobile menu button -->
 			<div class="md:hidden">
-				<div class="flex gap-1">
+				<div class="flex 
+					gap-1">
 					<button
+						on:click={(e) => scrollToTarget(e, '#signup-contact')}
 						class="font-plus-jakarta-sans cursor-pointer text-[11px] font-semibold text-left text-white p-1 flex justify-center items-center shadow-[0 0.5px 0.8px 0 rgba(10, 19, 53, 0.08), 0 0 0.5px 0 rgba(0, 0, 0, 0.4), 0 0 0.5px 0 rgba(0, 0, 0, 0.64)] bg-[#02a758]"
 					>
 						Join AfterLib
@@ -88,7 +115,6 @@
 			</div>
 		</div>
 
-		<!-- Mobile Navigation -->
 		{#if isMenuOpen}
 			<div
 				class="md:hidden border-t h-screen z-50 border-gray-200 absolute bg-[rgba(0,0,0,0.8)] w-full left-0"
@@ -98,14 +124,15 @@
 						<a
 							href={item.href}
 							class="text-gray-700 text-center hover:text-gray-900 px-3 py-2 text-base font-bold"
-							on:click={closeMenu}
+							on:click={(e) => scrollToTarget(e, item.href)}
 						>
 							{item.name}
 						</a>
 					{/each}
 					<div class="p-2 w-full">
 						<button
-							class="h-12 w-full flex flex-row justify-center items-center gap-2 p-4 border #c2c2c2 border-solid bg-white"
+							class="h-12 w-full flex flex-row justify-center items-center gap-2 
+							p-4 border #c2c2c2 border-solid bg-white"
 							on:click={closeMenu}
 						>
 							Close
