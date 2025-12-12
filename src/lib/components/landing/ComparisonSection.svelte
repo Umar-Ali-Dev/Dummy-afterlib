@@ -27,7 +27,7 @@
 
 <section class="w-full bg-primary relative">
   <div 
-    class="relative max-w-7xl mx-auto py-20 md:py-28 overflow-hidden bg-cover bg-center bg-no-repeat"
+    class="relative responsive-container mx-auto py-20 md:py-28 overflow-hidden bg-cover bg-center bg-no-repeat"
     style="background-image: url({greenBg});"
   >
     <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">

@@ -28,7 +28,36 @@ body {
   font-weight: 700;
   color: #111827;
 }
+.responsive-container {
+  max-width: 80rem; 
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+@media (min-width: 640px) {
+  .responsive-container {
+    max-width: 48rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    max-width: 64rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-container {
+    max-width: 72rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .responsive-container {
+    max-width: 80rem;
+  }
+}
 @media (min-width: 768px) {
   .h-primary {
     font-size: 2.25rem;

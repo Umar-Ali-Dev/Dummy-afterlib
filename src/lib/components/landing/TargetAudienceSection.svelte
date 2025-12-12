@@ -31,7 +31,7 @@
 </script>
 
 <section class="w-full bg-primary">
-    <div class="py-16  max-w-7xl mx-auto ">
+    <div class="py-16 responsive-container mx-auto ">
 
   <div class="text-center mb-12">
     <h2 class="h-primary">

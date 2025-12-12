@@ -6,8 +6,8 @@
   export let ctaLink = "#";
 </script>
 
-<section class="bg-[#fafaf5] py-8 md:py-10">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="bg-primary py-8 md:py-10">
+  <div class="responsive-container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <p class="flex justify-center font-plus-jakarta-sans text-lg text-center text-[#1e1e1e]">
         The trusted standard since 2022
