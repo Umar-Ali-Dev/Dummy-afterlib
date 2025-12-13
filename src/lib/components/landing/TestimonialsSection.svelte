@@ -1,7 +1,8 @@
 <script lang="ts">
   import greenBg2 from '$lib/assets/images/GreenBg2.png';
   import avatar from '$lib/assets/images/Avatar.png';
-  import twitterIcon from '$lib/assets/icons/Twitter.png'; // Make sure this path is correct
+  import twitterIcon from '$lib/assets/icons/Twitter.png';
+  // Make sure this path is correct
 </script>
 
 <section class="w-full bg-primary relative">
@@ -13,7 +14,7 @@
       
       <div class="bg-white  shadow-xl p-8 md:p-12 space-y-12">
 
-        <div class="flex flex-col items-start space-y-0">
+        <div class="space-y-0">
           
           <div class="flex items-center">
              <img 
@@ -21,14 +22,14 @@
               alt="User Avatar" 
               class="w-8 h-8 object-cover block" 
             />
-            <div class="bg-black text-white px-4  h-8 flex items-center">
-              <p class="text-lg md:text-xl font-bold leading-none tracking-tight">
+            <div class="bg-black text-white px-4 h-8 flex items-center">
+              <p class="text-[16px] md:text-xl font-bold leading-none tracking-tight">
                 I think all spy tools white label AfterLib
               </p>
             </div>
           </div>
 
-          <div class=" custom-green px-3  flex items-center gap-2 w-fit h-8">
+          <div class="custom-green px-3 flex items-center gap-2 w-fit h-8">
             <img src={twitterIcon} alt="Twitter" class="w-4 h-4 brightness-0 invert" />
             <span class="text-white font-bold text-sm tracking-wide">kes1lav</span>
           </div>
@@ -41,7 +42,8 @@
         
         <div class="text-gray-600 space-y-4 leading-relaxed">
           <p>
-            If you just want to scroll through the same ads everyone else sees and call it "inspiration", any of them will do. Many are even cheaper.
+            If you just want to scroll through the same ads everyone else sees and call it "inspiration", any of them will do.
+            Many are even cheaper.
           </p>
           <p>
             Eventually, you might stumble upon a winner by luck.
@@ -50,8 +52,9 @@
 
         <div class="space-y-4 pt-8 border-t border-gray-100">
           <h3 class="text-xl md:text-2xl font-bold text-gray-900 leading-tight">
-            Used other tools? <br/>
-            You’ve seen it yourself. Their data is limited, outdated, and inaccurate
+            Used other tools?<br/>
+            You’ve seen it yourself.<br/>
+            Their data is limited, outdated, and inaccurate
           </h3>
           <div class="text-gray-600 space-y-4 leading-relaxed">
             <p>
@@ -65,7 +68,7 @@
 
         <div class="space-y-6 pt-8 border-t border-gray-100">
           <h3 class="text-xl md:text-2xl font-bold text-gray-900 leading-tight">
-            Used AfterLib before? <br/>
+            Used AfterLib before?<br/>
             You’ll barely recognize it now
           </h3>
           <div class="text-gray-600 space-y-4 leading-relaxed mb-8">
@@ -78,10 +81,11 @@
           </div>
           
           <div>
-            <button class="custom-green hover:bg-[#009945] text-white font-bold py-4 px-8  text-lg transition-colors duration-200">
+            <button class="custom-green hover:bg-[#009945] text-white font-bold py-4 px-8 text-sm sm:text-lg transition-colors duration-200 w-full md:w-auto">
               Unlock AfterLib
             </button>
           </div>
+    
         </div>
 
       </div>
