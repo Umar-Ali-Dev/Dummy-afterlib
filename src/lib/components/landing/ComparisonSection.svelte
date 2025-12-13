@@ -28,7 +28,7 @@
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
       
-      <div class="text-center mb-16 space-y-2">
+      <div class="sm:text-center text-left mb-16 space-y-2">
         <div class="inline-block">
           <span class="bg-black text-white text-3xl md:text-[40px] font-bold px-4 py-1 leading-tight box-decoration-clone">
             The difference
@@ -81,7 +81,7 @@
 
       </div>
 
-      <div class="mt-12 flex justify-center px-4 sm:px-0">
+      <div class="mt-12 flex justify-center md:px-4 sm:px-0">
         <button class="bg-[#1e1e1e] text-white font-semibold text-lg px-8 py-4 hover:bg-black transition-colors duration-200 w-full sm:w-auto">
           Start analyzing ads smarter
         </button>
