@@ -12,24 +12,17 @@
   import illustration3 from '$lib/assets/images/Illustration3.png';
 
   // 3. COMBINE SANITY DATA FOR MAIN TABS (Existing logic)
-  $: sanityTabs = [
-    // Map Features data
-    ...(features || []).map(f => ({
-      name: f.title,                      
-      title: f.title,                     
-      description: f.description,         
-      image: f.iconUrl || featuresImage,  
-      type: 'feature'
-    })),
-    // Map Services data
-    ...(services || []).map(s => ({
-      name: s.title,
-      title: s.title,
-      description: s.description,
-      image: s.imageUrl || featuresImage, 
-      type: 'service'
-    }))
-  ];
+$: sanityTabs = [
+  // Map Features data only
+  ...(features || []).map(f => ({
+    name: f.title, 
+    title: f.title, 
+    description: f.description, 
+    image: f.iconUrl || featuresImage, 
+    type: 'feature'
+  }))
+  // Removed the section mapping 'services' data
+];
 
   // 4. FINAL TABS ARRAY LOGIC (using combined data or hardcoded fallback)
   $: tabs = sanityTabs.length > 0 
