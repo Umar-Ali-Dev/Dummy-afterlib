@@ -19,17 +19,26 @@
     { id: 6, name: "Liam N.", handle: "liam_taken", tag: "Brand Manager", text: `If you are looking for a tool that finds products, I will tell you... AfterLib is the one. A particular set of skills.`, score: 4.7 },
   ];
   
-  // Function to calculate the active index based on scroll position
   const calculateActiveIndex = () => {
     if (!scrollContainer || reviews.length === 0) return 0;
 
     const scrollLeft = scrollContainer.scrollLeft;
-    // When w-full is used, clientWidth is the size of one snap segment
-    const segmentWidth = scrollContainer.clientWidth; 
+    const isTwoUp = scrollContainer.clientWidth >= 768; // Based on Tailwind's 'md' breakpoint
+    let segmentWidth;
+
+    if (isTwoUp) {
+      // Calculate width for two cards plus one gap
+      segmentWidth = (scrollContainer.clientWidth / 2) + 12; // clientWidth / 2 is 50%, 12px is half of gap-6
+      // To snap perfectly to the start of the next two cards, segmentWidth should be scrollContainer.clientWidth
+    } else {
+      // Mobile: Full card width (w-full)
+      segmentWidth = scrollContainer.clientWidth;
+    }
     
     // Calculate which card is closest to the left edge of the scroll area
-    // Use Math.round to snap to the closest index
-    const newIndex = Math.round(scrollLeft / segmentWidth);
+    const newIndex = isTwoUp 
+        ? Math.round(scrollLeft / scrollContainer.clientWidth) * 2
+        : Math.round(scrollLeft / segmentWidth);
 
     // Update the state
     activeIndex = Math.max(0, Math.min(newIndex, reviews.length - 1));
@@ -45,7 +54,9 @@
   
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainer) {
-      const scrollAmount = scrollContainer.clientWidth; // Scroll by a full card width
+      const isTwoUp = scrollContainer.clientWidth >= 768; // Same as 'md' breakpoint
+      const scrollAmount = isTwoUp ? scrollContainer.clientWidth : scrollContainer.clientWidth; 
+      
       const target = direction === 'left' 
         ?
         scrollContainer.scrollLeft - scrollAmount 
@@ -78,7 +89,7 @@
     <div 
       bind:this={scrollContainer}
       on:scroll={checkScroll}
-      class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+      class="flex overflow-x-auto md:gap-6 snap-x snap-mandatory scrollbar-hide"
       style="scrollbar-width: none;-ms-overflow-style: none;"
     >
       {#each reviews as review (review.id)}
@@ -128,6 +139,7 @@
         ></div>
       {/each}
     </div>
+
     <div class="hidden lg:flex justify-center items-center mt-8">
       <button 
         on:click={() => !atStart && scroll('left')}
