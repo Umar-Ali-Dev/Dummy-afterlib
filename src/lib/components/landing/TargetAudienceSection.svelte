@@ -14,7 +14,8 @@
     },
     {
       title: "Performance marketers",
-      subtitle: "Media buyers, affiliates & online marketers",
+          subtitle: "Dropshippers, DTC brands & online store owners",
+
       imageUrl: illustration2,
       detailsTitle: "Track any competitor. Spot what’s worth testing next",
       detailsText: "Get real signals on ads and offers that start working across any industry. No guessing and no noise, just clear ideas you can launch immediately."
