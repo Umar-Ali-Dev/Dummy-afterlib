@@ -1,5 +1,4 @@
 <script>
-  // Assuming these asset imports exist in your $lib/assets/images directory
   import review1 from "$lib/assets/images/review-01.png";
   import review2 from "$lib/assets/images/review-02.png";
   import review3 from "$lib/assets/images/review-03.png";
@@ -10,7 +9,7 @@
   import review8 from "$lib/assets/images/review-08.png";
   import review9 from "$lib/assets/images/review-09.png";
   import review10 from "$lib/assets/images/review-10.png";
-
+  
   const reviews = [
     { src: review1, alt: "Review 1" },
     { src: review2, alt: "Review 2" },
@@ -23,7 +22,25 @@
     { src: review9, alt: "Review 9" },
     { src: review10, alt: "Review 10" },
   ];
+
+  const initialMobileLimit = 2;
+  let showAll = false;
+
+  let windowWidth = 0;
+  $: isDesktopView = windowWidth >= 768; 
+
+  $: limitedReviews = isDesktopView || showAll 
+    ? reviews 
+    : reviews.slice(0, initialMobileLimit);
+  
+  $: hasMore = !isDesktopView && limitedReviews.length < reviews.length;
+
+  function toggleShowAll() {
+    showAll = !showAll;
+  }
 </script>
+
+<svelte:window bind:innerWidth={windowWidth} />
 
 <section class="bg-primary py-16 md:py-24">
   <div class="responsive-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,29 +50,41 @@
     </h2>
 
     <div class="mt-12 md:mt-20 grid gap-8 md:gap-12 lg:gap-16 grid-cols-1 md:grid-cols-2">
+      
       <div class="space-y-8 md:space-y-12">
-        {#each reviews.filter((_, i) => i % 2 === 0) as review}
+        {#each limitedReviews.filter((_, i) => i % 2 === 0) as review}
           <div class="flex justify-start">
             <img 
               src={review.src} 
               alt={review.alt} 
-              class="w-full h-auto max-w-lg" 
+              class="w-full h-auto md:max-w-lg" 
             />
           </div>
         {/each}
       </div>
 
-      <div class="space-y-8 md:space-y-12 mt-0 md:mt-12">
-        {#each reviews.filter((_, i) => i % 2 !== 0) as review}
+      <div class="space-y-8 md:space-y-12 mt-0">
+        {#each limitedReviews.filter((_, i) => i % 2 !== 0) as review}
           <div class="flex justify-start">
             <img 
               src={review.src} 
               alt={review.alt} 
-              class="w-full h-auto max-w-lg" 
+              class="w-full h-auto md:max-w-lg" 
             />
           </div>
         {/each}
       </div>
+    </div>
+    
+    <div class="flex mt-12 md:hidden">
+      {#if hasMore || showAll}
+        <button 
+          on:click={toggleShowAll}
+          class="w-full bg-black text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-800 transition-colors duration-200"
+        >
+          {showAll ? 'Show less' : 'Show more'}
+        </button>
+      {/if}
     </div>
   </div>
 </section>
