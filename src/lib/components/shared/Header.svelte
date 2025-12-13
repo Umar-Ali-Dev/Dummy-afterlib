@@ -1,13 +1,14 @@
 <script>
 	// 1. IMPORT GOTO AND PAGE FROM SVELTEKIT
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores'; // Used to check the current route
-	import { get } from 'svelte/store'; // Helper for reading the store
+	import { page } from '$app/stores';
+	// Used to check the current route
+	import { get } from 'svelte/store';
+	// Helper for reading the store
 	
 	import logo from '$lib/assets/logo.png';
 
 	let isMenuOpen = false;
-
 	// Note: hrefs are kept as hashes (#...)
 	const navigation = [
 		{ name: 'Pricing', href: '#pricing' },
@@ -16,7 +17,6 @@
 		// Blog remains a standard URL that navigates away
 		{ name: 'Blog', href: '/blog' }
 	];
-
 	function toggleMenu() {
 		isMenuOpen = !isMenuOpen;
 	}
@@ -28,17 +28,20 @@
 	// 2. MODIFIED: Function to handle smooth scrolling across routes
 	function scrollToTarget(event, href) {
 		const isHashLink = href.startsWith('#');
-		closeMenu(); // Close mobile menu immediately
+		closeMenu();
+		// Close mobile menu immediately
 
 		if (!isHashLink) {
 			// It's a regular link like /blog, let default navigation happen
 			return;
 		}
 
-		event.preventDefault(); // Prevent default hash jump
+		event.preventDefault();
+		// Prevent default hash jump
 
 		const currentPage = get(page).url.pathname;
-		const targetPath = '/'; // The components are always on the root route
+		const targetPath = '/';
+		// The components are always on the root route
 
 		if (currentPage === targetPath) {
 			// Case 1: Already on the home page, perform smooth scroll locally
@@ -93,8 +96,8 @@
 			</div>
 
 			<div class="md:hidden">
-				<div class="flex 
-					gap-1">
+				<div 
+					class="flex gap-1">
 					<button
 						on:click={(e) => scrollToTarget(e, '#signup-contact')}
 						class="font-plus-jakarta-sans cursor-pointer text-[11px] font-semibold text-left text-white p-1 flex justify-center items-center shadow-[0 0.5px 0.8px 0 rgba(10, 19, 53, 0.08), 0 0 0.5px 0 rgba(0, 0, 0, 0.4), 0 0 0.5px 0 rgba(0, 0, 0, 0.64)] bg-[#02a758]"
@@ -132,25 +135,25 @@
 
 		{#if isMenuOpen}
 			<div
-				class="md:hidden border-t h-screen z-50 border-gray-200 absolute bg-[rgba(0,0,0,0.8)] w-full left-0"
+				class="md:hidden h-screen z-50 absolute bg-[rgba(0,0,0,0.8)] w-full left-0 top-[64px]"
 			>
-				<div class="flex flex-col space-y-3 bg-[#f2f2f2]">
+				<div class="flex flex-col space-y-1 bg-white p-4">
 					{#each navigation as item}
 						<a
 							href={item.href}
-							class="text-gray-700 text-center hover:text-gray-900 px-3 py-2 text-base font-bold"
+							class="text-gray-900 text-left hover:text-gray-700 px-3 py-3 text-lg font-semibold border-b border-gray-100 last:border-b-0 transition-colors"
 							on:click={(e) => scrollToTarget(e, item.href)}
 						>
 							{item.name}
 						</a>
 					{/each}
-					<div class="p-2 w-full">
+					<div class="pt-4 w-full">
 						<button
 							class="h-12 w-full flex flex-row justify-center items-center gap-2 
-							p-4 border #c2c2c2 border-solid bg-white"
+							p-4 border border-gray-300 bg-white font-bold text-gray-700 hover:bg-gray-100 transition-colors"
 							on:click={closeMenu}
 						>
-							Close
+							Close Menu
 						</button>
 					</div>
 				</div>
