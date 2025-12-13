@@ -199,11 +199,11 @@
       {/each}
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
       {#each featureCards as card, index} 
         
         <div class="md:hidden">
-          <div class="border border-gray-200 overflow-hidden mb-4">
+          <div class="border border-gray-200 overflow-hidden bg-white ">
             <button
               on:click={() => activeServiceTab = activeServiceTab === index ? null : index}
               class="w-full text-left py-4 px-4 text-base font-semibold text-gray-900 flex justify-between items-center transition-colors duration-200
