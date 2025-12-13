@@ -3,7 +3,6 @@
     // Payment Icons
     import applyPayIcon from '$lib/assets/icons/ApplyPay.png';
     import visaIcon from '$lib/assets/icons/Visa.png';
-    // NOTE: Using the file name 'MasteCcard' exactly as provided in your list
     import mastercardIcon from '$lib/assets/icons/MasteCcard.png';
     import americanExpressIcon from '$lib/assets/icons/AmericanExpress.png';
     import googlePayIcon from '$lib/assets/icons/GooglePay.png';
@@ -38,7 +37,6 @@
             alt: 'Google Pay' 
         },
     ];
-
     // Data for Info Icons (Secured Payment and Cancel Anytime)
     const infoIcons = [
         { 
@@ -52,7 +50,7 @@
             alt: 'Credit Card' 
         }
     ];
-	const pricingPlans = [
+    const pricingPlans = [
 		{
 			name: 'Starter',
 			price: '$49',
@@ -119,64 +117,58 @@
 
 <div class="min-h-screen custom-green py-16 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
-		<!-- Header -->
 		<div class="text-center mb-12">
 			<h1
-				class=" font-plus-jakarta-sans text-[40px] text-center text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+				class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
 			>
 				Simple & transparent pricing
 			</h1>
 			<p
-				class="font-plus-jakarta-sans text-2xl text-center text-white sm:text-lg max-w-2xl mx-auto"
+				class="text-base sm:text-lg text-white max-w-2xl mx-auto"
 			>
 				AfterLib replaces multiple tools and saves you weeks of research, all for less than you'd
 				spend testing one ad.
 			</p>
 		</div>
 
-		<!-- Pricing Cards -->
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+		<div class="flex flex-nowrap overflow-x-auto scrollbar-hide snap-x gap-6 mb-12 pb-4 sm:grid sm:grid-cols-2 lg:grid-cols-4">
 			{#each pricingPlans as plan}
-				<div class="bg-white shadow-lg flex flex-col relative">
-					<!-- Badge -->
-
+				<div class="bg-white shadow-lg flex flex-col relative shrink-0 w-full sm:w-auto snap-start">
 					{#if plan.badge}
-						<div class="absolute top-[.6px] right-[.6px] transform">
+						<div class="absolute top-0.5 right-0.5 transform z-10">
 							<span
-								class="flex justify-center items-center gap-2 bg-[#02a758] font-plus-jakarta-sans text-xs font-semibold text-left text-white px-4 py-1"
+								class="flex justify-center items-center gap-2 bg-[#02a758] text-xs font-semibold text-white px-4 py-1"
 							>
 								{plan.badge}
 							</span>
 						</div>
 					{/if}
 
-					<!-- Header -->
 					<div class="pb-3 pt-6 px-6 border-b border-b-[#e0e0e0]">
-						<h3 class="font-plus-jakarta-sans text-2xl font-bold text-left text-[#1e1e1e] pb-2">
+						<h3 class="text-xl sm:text-2xl font-bold text-left text-[#1e1e1e] pb-2">
 							{plan.name}
 						</h3>
 						<div
-							class="font-plus-jakarta-sans text-lg font-semibold leading-[1.33px] text-left text-[#1e1e1e] pb-3"
+							class="text-2xl sm:text-3xl font-semibold leading-tight text-left text-[#1e1e1e] pb-3"
 						>
 							{plan.price}
 						</div>
-						<p class="font-plus-jakarta-sans text-sm text-left text-[#3d3d3d] mb-3">
+						<p class="text-sm text-left text-[#3d3d3d] mb-3">
 							{plan.description}
 						</p>
-						<div class="items-center">
+						<div class="flex items-center">
 							<label class="inline-flex items-center cursor-pointer">
 								<input type="checkbox" value="" class="sr-only peer" />
 								<div
 									class="relative w-9 h-5 bg-[#e0e0e0] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand"
 								></div>
-								<p class="text-[14px] font-semibold text-[#1e1e1e] ml-2">
-									Yearly billing <span>{plan.yearlyBilling}</span>
+								<p class="text-sm font-semibold text-[#1e1e1e] ml-2">
+									Yearly billing <span class="text-[12px]">{plan.yearlyBilling}</span>
 								</p>
 							</label>
 						</div>
 					</div>
 
-					<!-- Features -->
 					<div class="grow mb-6 px-6 mt-3">
 						<ul class="space-y-3">
 							{#each plan.features as feature}
@@ -188,7 +180,7 @@
 									<span class="mr-2 mt-0.5">
 										{#if feature.icon}
 											<svg
-												class="w-5! h-5! custom-green rounded-2xl text-white"
+												class="w-5 h-5 custom-green rounded-2xl text-white"
 												fill="currentColor"
 												viewBox="0 0 20 20"
 											>
@@ -213,10 +205,9 @@
 										{/if}
 									</span>
 									<span
-										class="flex items-center gap-[5px] font-plus-jakarta-sans text-sm font-semibold text-left text-[#1e1e1e]"
+										class="flex items-center gap-[5px] text-sm font-semibold text-left text-[#1e1e1e]"
 									>
 										{feature.text}
-										<!-- svg  -->
 										<svg
 											width="16"
 											height="16"
@@ -251,7 +242,6 @@
 						</ul>
 					</div>
 
-					<!-- Button -->
 					<button
 						class="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-6 transition-colors"
 					>
@@ -263,37 +253,38 @@
 
 		<div class=" p-4 text-white">
     
-    <div class="flex justify-center items-center space-x-2 sm:space-x-4 mb-8">
-        {#each paymentIcons as icon}
-            <img 
-                src={icon.src} 
-                alt={icon.alt} 
-                class="h-5 w-auto" 
-            />
-        {/each}
-    </div>
-
-
-    <div class="flex justify-center items-center text-sm font-light space-x-6 mb-6">
-        {#each infoIcons as info}
-            <div class="flex items-center space-x-1">
-                <img 
-                    src={info.src} 
-                    alt={info.alt} 
-                    class="h-5 w-5" 
-                />
-                <span>{info.text}</span>
+            <div class="flex justify-center items-center flex-wrap gap-x-2 sm:gap-x-4 gap-y-2 mb-4 sm:mb-8">
+                {#each paymentIcons as icon}
+                    <img 
+                        src={icon.src} 
+                        alt={icon.alt} 
+                        class="h-5 w-auto" 
+                    />
+                {/each}
             </div>
-        {/each}
-    </div>
-</div>
+
+
+            <div class="flex flex-col sm:flex-row justify-center items-center text-sm font-light space-y-2 sm:space-y-0 sm:space-x-6 mb-6">
+                {#each infoIcons as info}
+                    <div class="flex items-center space-x-1">
+                        <img 
+                            src={info.src} 
+                            alt={info.alt} 
+                            class="h-4 w-4" 
+                        />
+                        <span>{info.text}</span>
+                    </div>
+                {/each}
+            </div>
+        </div>
 		
 		<div class="text-center">
 			<p
-				class="font-plus-jakarta-sans text-lg font-semibold text-center text-[#1e1e1e] inline-block bg-white px-1 py-1"
+				class="text-lg font-semibold text-center text-[#1e1e1e] inline-block bg-white px-3 py-1 shadow-md"
 			>
 				Trusted by your competitors and thousands of marketers worldwide.
 			</p>
 		</div>
 	</div>
 </div>
+
