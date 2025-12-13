@@ -44,7 +44,7 @@
 
 <section class="bg-primary py-16 md:py-24">
   <div class="responsive-container mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 leading-tight">
+    <h2 class="h-primary font-bold text-left sm:text-center text-gray-900 leading-tight">
       Trusted by real people <br class="hidden sm:inline" />
       who rely on real data
     </h2>

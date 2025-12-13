@@ -30,19 +30,19 @@
       
       <div class="sm:text-center text-left mb-16 space-y-2">
         <div class="inline-block">
-          <span class="bg-black text-white text-3xl md:text-[40px] font-bold px-4 py-1 leading-tight box-decoration-clone">
+          <span class="bg-black text-white text-[32px] md:text-[40px] font-bold px-4 py-1 leading-tight box-decoration-clone">
             The difference
           </span>
         </div>
         <br />
         <div class="inline-block">
-          <span class="bg-black text-white text-3xl md:text-[40px] font-bold px-4 py-1 leading-tight box-decoration-clone">
+          <span class="bg-black text-white text-[32px] md:text-[40px] font-bold px-4 py-1 leading-tight box-decoration-clone">
             between seeing ads
           </span>
         </div>
         <br />
         <div class="inline-block">
-          <span class="bg-black text-white text-3xl md:text-[40px] font-bold px-4 py-1 leading-tight box-decoration-clone">
+          <span class="bg-black text-white text-[32px] md:text-[40px] font-bold px-4 py-1 leading-tight box-decoration-clone">
             & understanding them
           </span>
         </div>

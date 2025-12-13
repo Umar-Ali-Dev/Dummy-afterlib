@@ -33,8 +33,8 @@
 <section class="w-full bg-primary">
     <div class="py-16 responsive-container mx-auto max-w-7xl">
 
-      <div class="text-center mb-12 px-4 sm:px-6">
-        <h2 class="text-3xl font-bold text-gray-900">
+      <div class="text-left sm:text-center mb-12 px-4 sm:px-6">
+        <h2 class="h-primary font-bold text-gray-900">
           Who AfterLib is built for
         </h2>
       </div>

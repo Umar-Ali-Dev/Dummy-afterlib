@@ -106,7 +106,7 @@
 <section class="w-full bg-primary">
 
 <div class="responsive-container mx-auto pb-24 bg-primary max-w-7xl px-4 sm:px-6">
-    <div class="text-center mb-12">
+    <div class="text-left sm:text-center mb-12">
     <h2 class="h-primary">
       A glimpse of what’s waiting for you
     </h2>

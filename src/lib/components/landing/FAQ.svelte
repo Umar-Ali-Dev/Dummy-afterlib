@@ -19,14 +19,14 @@
 
 <section class="bg-[#fafaf5] py-16 md:py-24">
 	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="text-center mb-14">
+		<div class="text-left sm:text-center mb-14">
 			<h2
-				class="text-2xl sm:text-[40px] font-bold text-center text-[#1e1e1e] mb-4"
+				class="h-primary font-bold  text-[#1e1e1e] mb-4"
 			>
 				Frequently Asked Questions
 			</h2>
 			<p
-				class="text-base sm:text-2xl text-center text-[#1e1e1e] max-w-2xl mx-auto"
+				class="text-base sm:text-2xl  text-[#1e1e1e] max-w-2xl mx-auto"
 			>
 				Everything you need to know about AfterLib and ad intelligence.
 			</p>
@@ -78,11 +78,11 @@
 			{/if}
 		</div>
 
-		<div class="mt-12 text-center">
+		<div class="mt-12 text-left sm:text-center">
 			<p class="text-lg sm:text-2xl text-[#1e1e1e] mb-6">
 				Have a question? We're here for you!<br class="hidden sm:block" /> Our support team is ready to assist you
 			</p>
-			<div class="flex items-center justify-center">
+			<div class="flex items-center justify-start sm:justify-center">
 				<button
 					class="flex gap-2 cursor-pointer items-center h-12 flex-row justify-center p-4 border border-[#c2c2c2] border-solid bg-white text-sm font-bold leading-none text-[#1e1e1e] shadow-sm hover:shadow-md transition-shadow duration-200"
 				>

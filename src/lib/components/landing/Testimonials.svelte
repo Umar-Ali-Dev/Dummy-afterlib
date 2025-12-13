@@ -76,8 +76,8 @@
 <section class="w-full bg-primary py-16 px-4 md:px-8">
   <div class="responsive-container mx-auto max-w-7xl">
     
-    <div class="text-center mb-12 space-y-4">
-      <h2 class="font-plus-jakarta-sans text-[40px] font-bold text-center custom-black tracking-tight leading-tight">
+    <div class="text-left sm:text-center mb-12 space-y-4">
+      <h2 class=" font-plus-jakarta-sans h-primary font-bold custom-black tracking-tight leading-tight">
         Trusted by professional <br />
         marketers worldwide
       </h2>

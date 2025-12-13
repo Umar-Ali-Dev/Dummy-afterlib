@@ -16,7 +16,7 @@
     </div>
 
     <div class="text-center mb-6">
-      <h1 class="font-plus-jakarta-sans text-[40px] font-bold text-center custom-black mb-4 leading-[1.2] max-w-2xl mx-auto">
+      <h1 class="font-plus-jakarta-sans h-primary font-bold  custom-black mb-4 leading-[1.2] max-w-2xl mx-auto">
         {title} 
       </h1>
     </div>
