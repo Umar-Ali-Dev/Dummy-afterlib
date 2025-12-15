@@ -4,16 +4,16 @@ import type { BlogPost, BlogPostSummary, LandingPage } from './types/sanity';
 
 type SanityImageSource = Parameters<ReturnType<typeof imageUrlBuilder>['image']>[0];
 
- export const client = createClient({
+const FALLBACK_PROJECT_ID = 'mug3d34w';
+const FALLBACK_DATASET = 'production';
+const FALLBACK_API_VERSION = '2024-01-01';
 
-projectId: 'mug3d34w', 
-
-dataset: 'production', 
-
-useCdn: false,
-
-apiVersion: '2024-01-01' 
-
+// The || operator provides the "else condition" (fallback)
+export const client = createClient({
+    projectId: import.meta.env.VITE_SANITY_PROJECT_ID || FALLBACK_PROJECT_ID, 
+    dataset: import.meta.env.VITE_SANITY_DATASET || FALLBACK_DATASET, 
+    useCdn: false,
+    apiVersion: import.meta.env.VITE_SANITY_API_VERSION || FALLBACK_API_VERSION
 });
 
 // Image URL builder
